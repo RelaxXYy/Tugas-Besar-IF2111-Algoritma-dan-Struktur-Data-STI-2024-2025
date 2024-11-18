@@ -1,50 +1,75 @@
 #include "user.h"
+#include <stdio.h>
+#include <string.h>
 
-// Global Variables
+// Variabel global
 User users[MAX_USERS];
 int num_users = 0;
 
 // Manual String Comparison
 int str_compare(const char *s1, const char *s2) {
-    while (*s1 && (*s1 == *s2)) {
+    while (*s1 != '\0' && *s2 != '\0') {
+        if (*s1 != *s2) {
+            return *s1 - *s2; // Jika ada karakter yang berbeda
+        }
         s1++;
         s2++;
     }
-    return *(unsigned char *)s1 - *(unsigned char *)s2;
+    return *s1 - *s2; // Periksa jika salah satu string belum selesai
 }
 
-// Manual String Copy
-void str_copy(char *dest, const char *src) {
-    while (*src) {
-        *dest++ = *src++;
+void loadUsersFromFile() {
+    FILE *file = fopen("users.csv", "r"); // buka file untuk membaca
+    if (file == NULL) {
+        printf("File tidak ditemukan, file baru akan dibuat.\n");
+        return;
     }
-    *dest = '\0';
+
+    char line[512];
+    while (fgets(line, sizeof(line), file)) {
+        char username[MAX_LEN], password[MAX_LEN];
+
+        // Memisahkan username dan password berdasarkan koma
+        if (sscanf(line, "%[^,],%s", username, password) == 2) {
+            strcpy(users[num_users].username, username);
+            strcpy(users[num_users].password, password);
+            num_users++;
+        }
+    }
+
+    fclose(file); // Tutup file
+}
+
+void saveUsersToFile() {
+    FILE *file = fopen("users.csv", "w"); // buka file untuk menulis
+    if (file == NULL) {
+        printf("Error membuka file untuk menulis.\n");
+        return;
+    }
+
+    // Menulis data pengguna ke file
+    for (int i = 0; i < num_users; i++) {
+        fprintf(file, "%s,%s\n", users[i].username, users[i].password);
+    }
+
+    fclose(file); // Tutup file
 }
 
 int registerUser(const char *username, const char *password) {
+    // Periksa apakah username sudah ada
     for (int i = 0; i < num_users; i++) {
-        if (str_compare(users[i].username, username) == 0) {
-            return 0; // Username already exists
+        if (strcmp(users[i].username, username) == 0) {
+            return 0; // Username sudah digunakan
         }
     }
 
-    if (num_users >= MAX_USERS) {
-        return -1; // Array full
-    }
-
-    str_copy(users[num_users].username, username);
-    str_copy(users[num_users].password, password);
-    users[num_users].money = 0; // Initial money is 0
+    // Menyimpan data pengguna ke dalam array
+    strcpy(users[num_users].username, username);
+    strcpy(users[num_users].password, password);
     num_users++;
-    return 1; // Registration successful
-}
 
-int loginUser(const char *username, const char *password) {
-    for (int i = 0; i < num_users; i++) {
-        if (str_compare(users[i].username, username) == 0 &&
-            str_compare(users[i].password, password) == 0) {
-            return 1; // Login successful
-        }
-    }
-    return 0; // Login failed
+    // Menyimpan ke file setelah registrasi
+    saveUsersToFile();
+
+    return 1; // Registrasi berhasil
 }
