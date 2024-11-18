@@ -3,6 +3,7 @@
 // Update dari irdina
 int cmpStr(char *a, char *b)
 {
+  
   int flag = 0;
   while (*a != '\0' && *b != '\0') // while loop
   {
