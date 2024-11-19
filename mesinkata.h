@@ -7,7 +7,7 @@
 extern char currentWord[MAX_LEN];
 extern char currentChar;
 extern int currentLength;
-extern boolean endWord; 
+extern boolean endWord;  // Tipe data boolean, bukan bool
 
 void startWord();
 void advanceWord();
