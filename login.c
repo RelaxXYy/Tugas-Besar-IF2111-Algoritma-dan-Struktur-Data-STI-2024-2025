@@ -23,8 +23,6 @@ boolean loginUser(const char *username, const char *password, const char *curren
             return true; // Login berhasil
         }
     }
-
-    printf("Username atau password salah.\n");
     return false; // Login gagal
 }
 
@@ -33,38 +31,45 @@ void handleLogin() {
     char username[MAX_LEN];
     char password[MAX_LEN];
     char currentUser[MAX_LEN] = ""; // Kosongkan currentUser
+    boolean loginSuccess = false;
 
     printf(">> LOGIN\n");
 
-    // Memasukkan username
-    printf("Username: ");
-    startWord(); // Gunakan mesin kata untuk membaca input username
-    int i = 0;
-    while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
-        username[i] = currentWord[i];
-        i++;
-    }
-    username[i] = '\0'; // Null terminator
-
-    // Memasukkan password
-    printf("Password: ");
-    startWord(); // Gunakan mesin kata untuk membaca input password
-    i = 0;
-    while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
-        password[i] = currentWord[i];
-        i++;
-    }
-    password[i] = '\0'; // Null terminator
-
-    // Proses login
-    if (loginUser(username, password, currentUser)) {
-        // Jika login berhasil, set currentUser ke username
-        i = 0;
-        while (username[i] != '\0' && i < MAX_LEN - 1) {
-            currentUser[i] = username[i];
+    // Loop untuk terus meminta input sampai login berhasil
+    while (!loginSuccess) {
+        // Memasukkan username
+        printf("Username: ");
+        startWord();  // Membaca input untuk username
+        int i = 0;
+        while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
+            username[i] = currentWord[i];
             i++;
         }
-        currentUser[i] = '\0';
+        username[i] = '\0'; // Null terminator
+
+        // Memasukkan password
+        printf("Password: ");
+        startWord();  // Membaca input untuk password
+        i = 0;
+        while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
+            password[i] = currentWord[i];
+            i++;
+        }
+        password[i] = '\0'; // Null terminator
+
+        // Proses login
+        if (loginUser(username, password, currentUser)) {
+            // Jika login berhasil, set currentUser ke username
+            i = 0;
+            while (username[i] != '\0' && i < MAX_LEN - 1) {
+                currentUser[i] = username[i];
+                i++;
+            }
+            currentUser[i] = '\0';
+            loginSuccess = true;  // Login berhasil, keluar dari loop
+        } else {
+            printf("Username atau password salah. Silakan coba lagi.\n");
+        }
     }
 }
 
