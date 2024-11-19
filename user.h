@@ -7,6 +7,7 @@
 typedef struct {
     char username[MAX_LEN];
     char password[MAX_LEN];
+    int money;
 } User;
 
 extern User users[MAX_USERS];
