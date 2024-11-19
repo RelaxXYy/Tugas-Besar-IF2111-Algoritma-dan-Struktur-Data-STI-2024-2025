@@ -3,49 +3,69 @@
 #include "mesinkata.h"
 
 void handleRegister() {
-    printf(">> REGISTER\n");
+    int registrationSuccess = 0; // Flag untuk status registrasi
 
-    // Membaca username
-    printf("Username: ");
-    startWord(); // Memulai pembacaan kata
-    char username[MAX_LEN];
-    int i = 0;
-    while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
-        username[i] = currentWord[i];
-        i++;
-    }
-    username[i] = '\0'; // Null terminator
+    while (!registrationSuccess) {
+        printf(">> REGISTER\n");
 
-    if (endWord == false || currentChar != '\n') { // Masih ada kata lain setelahnya
-        printf("Username hanya boleh satu kata.\n");
-        return;
-    }
+        // Membaca username
+        char username[MAX_LEN];
+        printf("Username: ");
+        advChar();   // Inisialisasi baca karakter pertama
+        startWord(); // Mulai pembacaan kata
 
-    // Membaca password
-    printf("Password: ");
-    startWord(); // Membaca input password
-    char password[MAX_LEN];
-    i = 0;
-    while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
-        password[i] = currentWord[i];
-        i++;
-    }
-    password[i] = '\0'; // Null terminator
+        // Salin currentWord ke username
+        int i = 0;
+        while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
+            username[i] = currentWord[i];
+            i++;
+        }
+        username[i] = '\0'; // Null terminator
 
-    if (endWord == false || currentChar != '\n') { // Masih ada kata lain setelahnya
-        printf("Password hanya boleh satu kata.\n");
-        return;
-    }
+        // Validasi username
+        if (!endWord) { // Jika ada spasi di input username
+            printf("Username hanya boleh satu kata. Coba lagi.\n\n");
+            while (currentChar != '\n' && currentChar != EOF) {
+                advChar(); // Lewati sisa input untuk memulai ulang
+            }
+            continue; // Ulangi dari awal loop
+        }
 
-    // Proses registrasi
-    int result = registerUser(username, password);
+        // Membaca password
+        char password[MAX_LEN];
+        printf("Password: ");
+        advChar();   // Mulai pembacaan baru
+        startWord(); // Baca password
 
-    if (result == 1) {
-        printf("Akun dengan username \"%s\" berhasil dibuat.\n", username);
-    } else if (result == 0) {
-        printf("Username \"%s\" sudah digunakan.\n", username);
-    } else {
-        printf("Kapasitas pengguna penuh.\n");
+        // Salin currentWord ke password
+        i = 0;
+        while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
+            password[i] = currentWord[i];
+            i++;
+        }
+        password[i] = '\0'; // Null terminator
+
+        // Validasi password
+        if (!endWord) { // Jika ada spasi di input password
+            printf("Password hanya boleh satu kata. Coba lagi.\n\n");
+            while (currentChar != '\n' && currentChar != EOF) {
+                advChar(); // Lewati sisa input untuk memulai ulang
+            }
+            continue; // Ulangi dari awal loop
+        }
+
+        // Proses registrasi
+        int result = registerUser(username, password);
+
+        if (result == 1) {
+            printf("Akun dengan username \"%s\" berhasil dibuat.\n\n", username);
+            registrationSuccess = 1; // Registrasi berhasil
+        } else if (result == 0) {
+            printf("Username \"%s\" sudah digunakan. Silakan coba username lain.\n\n", username);
+        } else {
+            printf("Kapasitas pengguna penuh. Registrasi tidak dapat dilakukan.\n\n");
+            break; // Jika kapasitas penuh
+        }
     }
 }
 
