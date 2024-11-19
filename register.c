@@ -16,6 +16,11 @@ void handleRegister() {
     }
     username[i] = '\0'; // Null terminator
 
+    if (endWord == false || currentChar != '\n') { // Masih ada kata lain setelahnya
+        printf("Username hanya boleh satu kata.\n");
+        return;
+    }
+
     // Membaca password
     printf("Password: ");
     startWord(); // Membaca input password
@@ -26,6 +31,11 @@ void handleRegister() {
         i++;
     }
     password[i] = '\0'; // Null terminator
+
+    if (endWord == false || currentChar != '\n') { // Masih ada kata lain setelahnya
+        printf("Password hanya boleh satu kata.\n");
+        return;
+    }
 
     // Proses registrasi
     int result = registerUser(username, password);
