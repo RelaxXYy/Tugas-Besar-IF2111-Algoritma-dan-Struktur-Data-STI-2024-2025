@@ -1,12 +1,13 @@
 #ifndef MESINKATA_H
 #define MESINKATA_H
 
-#include <stdbool.h>  // Pastikan include ini ada
+#include "boolean.h"  // Menggunakan boolean dari file boolean.h
+#define MAX_LEN 256
 
-extern char currentWord[256];
+extern char currentWord[MAX_LEN];
 extern char currentChar;
 extern int currentLength;
-extern bool endWord;  // Pastikan tipe data bool
+extern boolean endWord; 
 
 void startWord();
 void advanceWord();
