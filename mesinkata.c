@@ -1,41 +1,33 @@
-#include <stdio.h>
-#include "boolean.h"
 #include "mesinkata.h"
+#include <stdio.h>
 
 char currentChar;
-char currentWord[MAX_LEN];
-int currentLength;
-boolean endWord;  // Pastikan tipe data bool
+char currentWord[NMax + 1];
+boolean endWord;
 
-// Mulai pembacaan kata
+void advChar() {
+    currentChar = getchar();
+}
+
 void startWord() {
-    currentLength = 0;
-    endWord = false;
+    int i = 0;
 
-    // Membaca karakter pertama, lewati spasi atau newline
-    do {
-        currentChar = getchar();
-    } while (currentChar == ' ' || currentChar == '\n');
-
-    if (currentChar == EOF) {
-        endWord = true;
-        currentWord[0] = '\0'; // Kosongkan currentWord
-        return;
+    // Lewati spasi di awal
+    while (currentChar == ' ' || currentChar == '\t') {
+        advChar();
     }
 
-    // Membaca kata sampai spasi, newline, atau EOF
-    while (currentChar != ' ' && currentChar != '\n' && currentChar != EOF) {
-        if (currentLength < MAX_LEN - 1) {
-            currentWord[currentLength++] = currentChar;
-        }
-        currentChar = getchar();
+    // Mulai membaca kata
+    while (currentChar != ' ' && currentChar != '\t' && currentChar != '\n' && currentChar != EOF) {
+        currentWord[i] = currentChar;
+        i++;
+        advChar();
     }
 
-    currentWord[currentLength] = '\0'; // Tambahkan null terminator
-    // Deteksi akhir kata
-    if (currentChar == EOF || currentChar == '\n') {
-        endWord = true;
-    }
+    currentWord[i] = '\0'; // Tambahkan null terminator
+
+    // Periksa apakah akhir kata atau akhir input
+    endWord = (currentChar == '\n' || currentChar == EOF);
 }
 
 // Lanjut membaca kata berikutnya
