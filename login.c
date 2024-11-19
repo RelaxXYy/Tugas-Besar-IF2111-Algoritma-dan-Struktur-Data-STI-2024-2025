@@ -19,7 +19,6 @@ boolean loginUser(const char *username, const char *password, const char *curren
     // Periksa username dan password
     for (i = 0; i < num_users; i++) {
         if (isEqual(username, users[i].username) && isEqual(password, users[i].password)) {
-            printf("Anda telah login ke PURRMART sebagai %s.\n", username);
             return true; // Login berhasil
         }
     }
@@ -31,15 +30,18 @@ void handleLogin() {
     char username[MAX_LEN];
     char password[MAX_LEN];
     char currentUser[MAX_LEN] = ""; // Kosongkan currentUser
-    boolean loginSuccess = false;
 
-    printf(">> LOGIN\n");
+    int loginSuccess = 0; // Flag untuk status login
 
-    // Loop untuk terus meminta input sampai login berhasil
     while (!loginSuccess) {
-        // Memasukkan username
+        printf(">> LOGIN\n");
+
+        // Input username
         printf("Username: ");
-        startWord();  // Membaca input untuk username
+        advChar();   // Mulai pembacaan karakter pertama
+        startWord(); // Baca input username
+
+        // Salin currentWord ke username
         int i = 0;
         while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
             username[i] = currentWord[i];
@@ -47,9 +49,21 @@ void handleLogin() {
         }
         username[i] = '\0'; // Null terminator
 
-        // Memasukkan password
+        // Validasi input username
+        if (!endWord) { // Jika input username memiliki lebih dari satu kata
+            printf("Username hanya boleh satu kata. Coba lagi.\n\n");
+            while (currentChar != '\n' && currentChar != EOF) {
+                advChar(); // Lewati sisa input
+            }
+            continue; // Ulangi loop untuk meminta input ulang
+        }
+
+        // Input password
         printf("Password: ");
-        startWord();  // Membaca input untuk password
+        advChar();   // Mulai pembacaan karakter pertama
+        startWord(); // Baca input password
+
+        // Salin currentWord ke password
         i = 0;
         while (currentWord[i] != '\0' && i < MAX_LEN - 1) {
             password[i] = currentWord[i];
@@ -57,18 +71,21 @@ void handleLogin() {
         }
         password[i] = '\0'; // Null terminator
 
+        // Validasi input password
+        if (!endWord) { // Jika input password memiliki lebih dari satu kata
+            printf("Password hanya boleh satu kata. Coba lagi.\n\n");
+            while (currentChar != '\n' && currentChar != EOF) {
+                advChar(); // Lewati sisa input
+            }
+            continue; // Ulangi loop untuk meminta input ulang
+        }
+
         // Proses login
         if (loginUser(username, password, currentUser)) {
-            // Jika login berhasil, set currentUser ke username
-            i = 0;
-            while (username[i] != '\0' && i < MAX_LEN - 1) {
-                currentUser[i] = username[i];
-                i++;
-            }
-            currentUser[i] = '\0';
-            loginSuccess = true;  // Login berhasil, keluar dari loop
+            printf("Login berhasil. Selamat datang, %s!\n", username);
+            loginSuccess = 1; // Login berhasil
         } else {
-            printf("Username atau password salah. Silakan coba lagi.\n");
+            printf("Username atau password salah. Coba lagi.\n\n");
         }
     }
 }
