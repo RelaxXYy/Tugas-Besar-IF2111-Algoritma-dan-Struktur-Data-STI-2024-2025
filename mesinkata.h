@@ -1,16 +1,17 @@
 #ifndef MESINKATA_H
 #define MESINKATA_H
 
-#include "boolean.h"  // Menggunakan boolean dari file boolean.h
-#define MAX_LEN 256
+#define NMax 100
+typedef int boolean;
+#define true 1
+#define false 0
 
-extern char currentWord[MAX_LEN];
 extern char currentChar;
-extern int currentLength;
-extern boolean endWord;  // Tipe data boolean, bukan bool
+extern char currentWord[NMax + 1];
+extern boolean endWord;
 
-void startWord();
-void advanceWord();
-char* getWord();
+void advChar();      // Membaca karakter berikutnya
+void startWord();    // Memulai pembacaan kata
+void copyWord();     // Opsional: Untuk menyalin kata jika diperlukan
 
 #endif
