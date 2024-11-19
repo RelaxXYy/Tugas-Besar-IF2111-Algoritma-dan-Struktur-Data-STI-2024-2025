@@ -11,6 +11,7 @@ typedef struct {
 
 extern User users[MAX_USERS];
 extern int num_users;
+extern int loggedInIndex;
 
 // Fungsi untuk mendaftar pengguna
 int registerUser(const char *username, const char *password);
@@ -20,5 +21,7 @@ void loadUsersFromFile();
 
 // Fungsi untuk menyimpan data pengguna ke file
 void saveUsersToFile();
+
+void logoutUser(); // yah buat logout
 
 #endif
