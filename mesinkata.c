@@ -1,13 +1,11 @@
 #include <stdio.h>
-#include <stdbool.h>  // Pastikan include ini ada
+#include "boolean.h"
 #include "mesinkata.h"
-
-#define MAX_LEN 256
 
 char currentChar;
 char currentWord[MAX_LEN];
 int currentLength;
-bool endWord;  // Pastikan tipe data bool
+boolean endWord;  // Pastikan tipe data bool
 
 // Mulai pembacaan kata
 void startWord() {
@@ -34,28 +32,15 @@ void startWord() {
     }
 
     currentWord[currentLength] = '\0'; // Tambahkan null terminator
+    // Deteksi akhir kata
+    if (currentChar == EOF || currentChar == '\n') {
+        endWord = true;
+    }
 }
 
 // Lanjut membaca kata berikutnya
 void advanceWord() {
-    currentLength = 0;
-
-    while (currentChar != ' ' && currentChar != '\n' && currentChar != EOF) {
-        if (currentLength < MAX_LEN - 1) {
-            currentWord[currentLength] = currentChar; // Tambahkan ke kata
-            currentLength++;
-        }
-        currentChar = getchar(); // Baca karakter berikutnya
-    }
-    currentWord[currentLength] = '\0'; // Tambahkan null terminator
-
-    while (currentChar == ' ' || currentChar == '\n') {
-        currentChar = getchar(); // Lewati spasi atau newline
-    }
-
-    if (currentChar == EOF) {
-        endWord = true;
-    }
+    startWord();
 }
 
 // Mendapatkan kata yang sudah dibaca
