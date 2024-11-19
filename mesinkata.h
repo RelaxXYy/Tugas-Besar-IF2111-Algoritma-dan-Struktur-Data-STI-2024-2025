@@ -1,10 +1,8 @@
 #ifndef MESINKATA_H
 #define MESINKATA_H
+#include "boolean.h"  // Meng-include boolean.h untuk mendefinisikan boolean, true, false
 
 #define NMax 100
-typedef int boolean;
-#define true 1
-#define false 0
 
 extern char currentChar;
 extern char currentWord[NMax + 1];
