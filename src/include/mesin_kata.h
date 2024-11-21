@@ -28,6 +28,6 @@ boolean is_same_string(char *str1, char *str2);
 char* word_to_string(Word w);
 void lower_string(char *str);
 void upper_string(char *str);
-void get_command();
+void get_line();
 
 #endif
