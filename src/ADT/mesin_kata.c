@@ -6,7 +6,7 @@ boolean end_word;
 Word current_word;
 
 void ignore_blank() {
-    while (get_current_char() == BLANK && !eop) {
+    while (get_current_char() == BLANK && get_current_char() == NN && !is_eop()) {
         adv();
     }
 }
@@ -33,7 +33,7 @@ void adv_word() {
 
 void copy_word() {
     int i = 0;
-    while (get_current_char() != BLANK && !eop && i < NMax) {
+    while (get_current_char() != BLANK && get_current_char() != NN && !eop && i < NMax) {
         current_word.tab_word[i] = get_current_char();
         i++;
         adv();
@@ -123,4 +123,16 @@ void upper_string(char *str) {
         }
         i++;
     }
+}
+
+void get_command(){
+    int i = 0;
+    start(NULL);
+    while(get_current_char() != NN){
+        current_word.tab_word[i] = get_current_char();
+        adv_command();
+        i++;
+    }
+    current_word.tab_word[i] = '\0';
+    current_word.length = i;
 }
