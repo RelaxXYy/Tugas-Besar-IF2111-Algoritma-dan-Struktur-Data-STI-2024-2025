@@ -36,7 +36,7 @@ boolean is_eop() {
     return eop;
 }
 
-void adv_command() {
+void adv_line() {
     int result = fscanf(pita, "%c", &current_char);
     eop = (result == EOF);
     if (eop){
