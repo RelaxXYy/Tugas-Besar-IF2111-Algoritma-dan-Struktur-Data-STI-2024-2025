@@ -34,7 +34,7 @@ void handle_register() {
 
         // cek apakah username sudah ada
         if (is_user_exist(users, input_name)) {
-            printf("Name \"%s\" sudah digunakan. Silakan coba name lain.\n\n", input_name);
+            printf("Akun dengan username \"%s\" sudah digunakan. Silakan coba username lain! \n\n", input_name);
             continue; 
         }
 
@@ -69,7 +69,7 @@ void handle_register() {
 
         // tambah pengguna baru
         add_user(users, input_name, input_password, 0); 
-        printf("Akun dengan name \"%s\" berhasil dibuat.\n\n", input_name);
+        printf("Akun dengan username \"%s\" berhasil dibuat. Silahkan LOGIN untuk melanjutkan! \n\n", input_name);
         is_registration_successful = 1; // berhasil
     }
 }
