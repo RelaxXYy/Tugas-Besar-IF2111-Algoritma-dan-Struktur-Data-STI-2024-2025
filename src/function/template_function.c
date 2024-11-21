@@ -1,7 +1,7 @@
-#include "include/all_library_headers.h"
-#include "include/all_ADT_headers.h"
-#include "include/boolean.h"
-#include "include/config.h"
+#include "../include/all_library_headers.h"
+#include "../include/all_ADT_headers.h"
+#include "../include/boolean.h"
+#include "../include/config.h"
 
 int main(){
     // command untuk compile dan run
