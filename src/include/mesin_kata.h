@@ -6,6 +6,7 @@
 #include "config.h"
 
 #define BLANK ' '
+#define NN '\n'
 
 typedef struct {
     char tab_word[NMax];
@@ -24,5 +25,9 @@ Word string_to_word(char *str);
 void print_word(Word w);
 void copy_string(char *to, char *from);
 boolean is_same_string(char *str1, char *str2);
+char* word_to_string(Word w);
+void lower_string(char *str);
+void upper_string(char *str);
+void get_line();
 
 #endif

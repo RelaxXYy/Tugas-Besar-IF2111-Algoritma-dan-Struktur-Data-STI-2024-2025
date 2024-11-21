@@ -14,5 +14,6 @@ void start();
 void adv();
 char get_current_char();
 boolean is_eop();
+void adv_line();
 
 #endif
