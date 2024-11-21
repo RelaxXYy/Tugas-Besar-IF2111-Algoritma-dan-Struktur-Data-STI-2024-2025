@@ -125,7 +125,7 @@ void upper_string(char *str) {
     }
 }
 
-void get_command(){
+void get_line(){
     int i = 0;
     start(NULL);
     while(get_current_char() != NN){
