@@ -91,3 +91,36 @@ boolean is_same_string(char *str1, char *str2) {
     }
     return str1[i] == '\0' && str2[i] == '\0';
 }
+
+char* word_to_string(Word w) {
+    char *str = (char *)malloc((w.length + 1) * sizeof(char));
+    if (str == NULL) {
+        printf("Memory allocation failed\n");
+        return NULL;
+    }
+    for (int i = 0; i < w.length; i++) {
+        str[i] = w.tab_word[i];
+    }
+    str[w.length] = '\0';
+    return str;
+}
+
+void lower_string(char *str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] = str[i] - 'A' + 'a';
+        }
+        i++;
+    }
+}
+
+void upper_string(char *str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            str[i] = str[i] - 'a' + 'A';
+        }
+        i++;
+    }
+}
