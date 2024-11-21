@@ -6,7 +6,7 @@ static FILE *pita;
 char current_char;
 boolean eop;
 
-void start(const char *filename) {
+void start(char *filename) {
     if (filename != NULL) {
         pita = fopen(filename, "r");
         if (pita == NULL) {

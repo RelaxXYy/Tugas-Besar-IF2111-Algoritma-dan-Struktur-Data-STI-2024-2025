@@ -13,7 +13,7 @@ int barang_count(Barang *barangs) {
     return i;
 }
 
-int barang_index(Barang *barangs, const char *name) {
+int barang_index(Barang *barangs, char *name) {
     int i = 0;
     while (barangs[i].name[0] != '\0') {
         if (is_same_string(barangs[i].name, name) == true) {
@@ -24,12 +24,12 @@ int barang_index(Barang *barangs, const char *name) {
     return -1;
 }
 
-void add_barang(Barang *barangs, const char *name, int price) {
+void add_barang(Barang *barangs, char *name, int price) {
     int i = barang_count(barangs);
-    copy_string(barangs[i].name, name);
+    copy_string(name, barangs[i].name);
     barangs[i].price = price;
 }
 
-boolean is_barang_exist(Barang *barangs, const char *name) {
+boolean is_barang_exist(Barang *barangs, char *name) {
     return barang_index(barangs, name) != -1;
 }

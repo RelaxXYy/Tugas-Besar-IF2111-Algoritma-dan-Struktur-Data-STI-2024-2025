@@ -12,11 +12,11 @@ typedef struct {
 } User;
 
 int user_count(User *users);
-int user_index(User *users, const char *name);
-void add_user(User *users, const char *name, const char *password, int money);
-boolean is_user_valid(User *users, const char *name, const char *password);
-void change_money(User *users, const char *name, int money);
-boolean is_user_exist(User *users, const char *name);
+int user_index(User *users, char *name);
+void add_user(User *users, char *name, char *password, int money);
+boolean is_user_valid(User *users, char *name, char *password);
+void change_money(User *users, char *name, int money);
+boolean is_user_exist(User *users, char *name);
 
 
 #endif

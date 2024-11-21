@@ -11,8 +11,8 @@ typedef struct {
 } Barang;
 
 int barang_count(Barang *barangs);
-int barang_index(Barang *barangs, const char *name);
-void add_barang(Barang *barangs, const char *name, int price);
-boolean is_barang_exist(Barang *barangs, const char *name);
+int barang_index(Barang *barangs, char *name);
+void add_barang(Barang *barangs, char *name, int price);
+boolean is_barang_exist(Barang *barangs, char *name);
 
 #endif
