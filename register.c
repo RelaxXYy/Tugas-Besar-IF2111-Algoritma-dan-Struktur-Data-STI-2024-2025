@@ -68,7 +68,7 @@ void handle_register() {
         }
 
         // tambah pengguna baru
-        add_user(users, input_name, input_password, 0);  // Ganti username jadi name
+        add_user(users, input_name, input_password, 0); 
         printf("Akun dengan name \"%s\" berhasil dibuat.\n\n", input_name);
         is_registration_successful = 1; // berhasil
     }
