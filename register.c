@@ -32,12 +32,6 @@ void handle_register() {
             continue; 
         }
 
-        // cek apakah username sudah ada
-        if (is_user_exist(users, input_name)) {
-            printf("Akun dengan username \"%s\" sudah digunakan. Silakan coba username lain! \n\n", input_name);
-            continue; 
-        }
-
         // baca password
         char input_password[MAX_LEN];
         printf("Password: ");
@@ -61,6 +55,12 @@ void handle_register() {
             continue; 
         }
 
+        // cek apakah username sudah ada
+        if (is_user_exist(users, input_name)) {
+            printf("Akun dengan username \"%s\" sudah digunakan. Silakan coba username lain! \n\n", input_name);
+            continue; 
+        }
+        
         // cek kapasitas pengguna
         if (user_count(users) >= MAX_USER) {
             printf("Kapasitas pengguna penuh. Registrasi tidak dapat dilakukan.\n\n");
