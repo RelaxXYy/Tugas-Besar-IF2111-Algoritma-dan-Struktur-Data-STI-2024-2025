@@ -19,8 +19,13 @@ int main()
     {
       QUITCOMMAND();
     }
+    else if (is_same_word(current_word,string_to_word("STORAGELIST"))||is_same_word(current_word,string_to_word("storagelist")))
+    {
+      
+    }
     else
     {
+
       printf("Perintah yang anda masukan tidak valid!\n");
     }
     adv_word();
