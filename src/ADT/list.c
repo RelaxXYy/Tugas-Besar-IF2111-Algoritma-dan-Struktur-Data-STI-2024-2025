@@ -3,11 +3,6 @@
 #include "../include/boolean.h"
 #include "../include/config.h"
 
-StaticIntList static_int_list;
-StaticCharList static_char_list;
-DynamicIntList dynamic_int_list;
-DynamicCharList dynamic_char_list;
-
 void create_static_int_list(StaticIntList *list) {
     (*list).count = 0;
 }

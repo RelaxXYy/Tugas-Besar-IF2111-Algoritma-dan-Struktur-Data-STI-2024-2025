@@ -130,7 +130,7 @@ void get_line(){
     start(NULL);
     while(get_current_char() != NN){
         current_word.tab_word[i] = get_current_char();
-        adv_command();
+        adv_line();
         i++;
     }
     current_word.tab_word[i] = '\0';

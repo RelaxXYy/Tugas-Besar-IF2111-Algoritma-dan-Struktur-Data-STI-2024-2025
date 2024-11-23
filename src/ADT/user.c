@@ -3,20 +3,18 @@
 #include "../include/boolean.h"
 #include "../include/config.h"
 
-User users[MAX_USER];
-
-int user_count(User *users) {
+int user_count(ListUser *users) {
     int i = 0;
-    while (users[i].name[0] != '\0') {
+    while ((*users).buffer[i].name[0] != '\0') {
         i++;
     }
     return i;
 }
 
-int user_index(User *users, char *name) {
+int user_index(ListUser *users, char *name) {
     int i = 0;
-    while (users[i].name[0] != '\0') {
-        if (is_same_string(users[i].name, name) == true) {
+    while ((*users).buffer[i].name[0] != '\0') {
+        if (is_same_string((*users).buffer[i].name, name) == true) {
             return i;
         }
         i++;
@@ -24,26 +22,26 @@ int user_index(User *users, char *name) {
     return -1;
 }
 
-void add_user(User *users, char *name, char *password, int money){
+void add_user(ListUser *users, char *name, char *password, int money){
     int i = user_count(users);  
-    copy_string(name, users[i].name);
-    copy_string(password, users[i].password);
-    users[i].money = money;
+    copy_string(name, (*users).buffer[i].name);
+    copy_string(password, (*users).buffer[i].password);
+    (*users).buffer[i].money = money;
 }
 
-boolean is_user_exist(User *users, char *name){
+boolean is_user_exist(ListUser *users, char *name){
     return user_index(users, name) != -1;
 }
 
-boolean is_user_valid(User *users, char *name, char *password){
+boolean is_user_valid(ListUser *users, char *name, char *password){
     int i = user_index(users, name);
     if (i == -1) {
         return false;
     }
-    return is_same_string(users[i].password, password);
+    return is_same_string((*users).buffer[i].password, password);
 }
 
-void change_money(User *users, char *name, int money){
+void change_money(ListUser *users, char *name, int money){
     int i = user_index(users, name);
-    users[i].money += money;
+    (*users).buffer[i].money += money;
 }
