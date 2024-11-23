@@ -4,6 +4,8 @@
 #include "../include/config.h"
 #include "../include/boolean.h"
 
+User users[MAX_USER];
+
 // login pengguna
 boolean login_user(char *name, char *password, char *current_user) {
     // apakah pengguna sudah login
