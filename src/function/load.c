@@ -4,11 +4,8 @@
 #include "../include/config.h"
 
 User users[MAX_USER];
-ListBarang barangs[INIT_BARANG];
+Barang barangs[MAX_BARANG];
 
-void load(User* users, Barang* barangs) {
-    start(NULL);
-    get_line();
-    printf("../../save/%s", current_word);
-    start("../../save/%s", current_word);
+int main(){
+    
 }

@@ -11,11 +11,6 @@ typedef struct {
     int money;
 } User;
 
-typedef struct {
-    User buffer[MAX_USER];
-    int count;
-} ListUser;
-
 int user_count(User *users);
 int user_index(User *users, char *name);
 void add_user(User *users, char *name, char *password, int money);

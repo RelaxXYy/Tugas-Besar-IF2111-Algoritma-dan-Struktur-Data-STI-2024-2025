@@ -8,4 +8,7 @@
 #include "mesin_kata.h"
 #include "barang.h"
 
+#define NMax 256 // Maximum length of a word
+#define MAX_LEN 256 // Maximum length of a string
+
 #endif

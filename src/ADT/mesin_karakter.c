@@ -23,9 +23,9 @@ void start(char *filename) {
 void adv() {
     int result = fscanf(pita, "%c", &current_char);
     eop = (result == EOF || current_char == MARK);
-    if (eop){
+    /* if (eop) {
         fclose(pita);
-    }
+    }*/
 }
 
 char get_current_char() {
@@ -34,12 +34,4 @@ char get_current_char() {
 
 boolean is_eop() {
     return eop;
-}
-
-void adv_line() {
-    int result = fscanf(pita, "%c", &current_char);
-    eop = (result == EOF);
-    if (eop){
-        fclose(pita);
-    }
 }

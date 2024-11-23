@@ -4,16 +4,15 @@
 #include "all_library_headers.h"
 #include "boolean.h"
 
-#define MARK '.'
+#define MARK '\n'
 #define BLANK ' '
 
 extern char current_char;
 extern boolean eop;
 
-void start();
+void start(char *filename);
 void adv();
 char get_current_char();
 boolean is_eop();
-void adv_line();
 
 #endif
