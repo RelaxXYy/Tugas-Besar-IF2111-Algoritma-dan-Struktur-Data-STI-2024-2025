@@ -3,6 +3,8 @@
 #include "../include/mesin_kata.h"
 #include "../include/config.h"
 
+User users[MAX_USER];
+
 void handle_register() {
     int is_registration_successful = 0; // status registrasi
 
