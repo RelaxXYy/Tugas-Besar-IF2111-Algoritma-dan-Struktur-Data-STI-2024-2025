@@ -4,6 +4,7 @@
 #include "../include/config.h"
 
 void handle_logout(char *current_user) {
+    printf(">> LOGOUT\n");
     // Check if a user is logged in
     if (current_user[0] == '\0') {
         printf("Tidak ada pengguna yang sedang login. Silakan LOGIN terlebih dahulu.\n");
