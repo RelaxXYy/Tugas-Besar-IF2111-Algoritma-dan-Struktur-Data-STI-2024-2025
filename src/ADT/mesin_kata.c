@@ -33,7 +33,7 @@ void adv_word() {
 
 void copy_word() {
     int i = 0;
-    while (get_current_char() != BLANK && !eop && i < NMax) {
+    while (get_current_char() != BLANK && get_current_char() != NN && !is_eop() && i < NMax) {
         current_word.tab_word[i] = get_current_char();
         i++;
         adv();

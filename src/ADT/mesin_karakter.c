@@ -22,8 +22,13 @@ void start(char *filename) {
 
 void adv() {
     int result = fscanf(pita, "%c", &current_char);
+<<<<<<< Updated upstream
     eop = (result == EOF || current_char == MARK);
     if (eop) {
+=======
+    eop = (result == EOF);
+    if (eop){
+>>>>>>> Stashed changes
         fclose(pita);
     }
 }

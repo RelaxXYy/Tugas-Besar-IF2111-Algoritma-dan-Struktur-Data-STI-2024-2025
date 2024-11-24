@@ -6,6 +6,7 @@
 #include "config.h"
 
 #define BLANK ' '
+#define NN '\n'
 
 typedef struct {
     char tab_word[NMax];
