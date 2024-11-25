@@ -22,6 +22,5 @@ void save(char *filename) {
     }
     fclose(file);
     printf("Save file berhasil disimpan. save berhasil.\n");
-    execute_command();
 
 }
