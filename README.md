@@ -70,4 +70,5 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 Untuk mengkompilasi program ini, gunakan langkah-langkah berikut:
 
 1. Pastikan Anda berada di direktori proyek.
-2. run makefile
+2. Run makefile
+3. File akan berjalan menampilkan Welcome page
