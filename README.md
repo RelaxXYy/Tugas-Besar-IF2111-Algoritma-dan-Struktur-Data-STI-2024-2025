@@ -70,6 +70,4 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 Untuk mengkompilasi program ini, gunakan langkah-langkah berikut:
 
 1. Pastikan Anda berada di direktori proyek.
-2. Jalankan perintah berikut di terminal:
-   ```bash
-   gcc -o purrmart src/*.c
+2. run makefile
