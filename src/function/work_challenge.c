@@ -172,6 +172,7 @@ void challenge(){
     for(int i = 0; i < challenges.count; i++){
         int_to_string(challenges.buffer[i].token, str);
         if(is_same_string(response, str)){
+            subtract_money(&users, current_user.name, challenges.buffer[i].cost);
             challenges.buffer[i].function();
             return;
         }
