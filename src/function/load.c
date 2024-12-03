@@ -4,9 +4,9 @@
 #include "../include/config.h"
 
 void load(char* filename) {
-    char file_path[MAX_LEN], default_path[MAX_LEN] = "../save/";
+    char file_path[MAX_LEN], default_path[MAX_LEN] = "/save/";
 
-    if (filename == NULL) copy_string("../save/default.txt", file_path);
+    if (filename == NULL) copy_string("/save/default.txt", file_path);
     else concat_string(default_path, filename, file_path);
     if (fopen(file_path, "r") == NULL) {
         printf("Save file tidak ditemukan. PURRMART gagal dijalankan.\n");

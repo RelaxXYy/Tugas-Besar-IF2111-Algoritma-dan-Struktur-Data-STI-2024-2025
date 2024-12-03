@@ -6,7 +6,6 @@ void start_command()
     load(NULL);
     is_session_started = true;
     printf("%s\n", "Konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.");
-    printf("%s\n", "Konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.\n");
     printf("****************************************\n");
     printf("*    Silahkan Bergabung di PURRMART    *\n");
     printf("****************************************\n");

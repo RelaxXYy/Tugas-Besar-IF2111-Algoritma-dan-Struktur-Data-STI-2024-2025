@@ -20,11 +20,11 @@ all: $(OUTPUT)
 
 # Build the executable
 $(OUTPUT): $(SRC_FILES)
-    $(CC) $(SRC_FILES) -o $(OUTPUT) $(CFLAGS)
+	$(CC) $(SRC_FILES) -o $(OUTPUT) $(CFLAGS)
 
 # Clean target
 clean:
-    rm -f $(OUTPUT)
+	rm -f $(OUTPUT)
 
 # Phony targets
 .PHONY: all clean
