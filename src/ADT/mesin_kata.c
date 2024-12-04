@@ -257,3 +257,20 @@ int string_length(char *str) {
     }
     return i;
 }
+
+void clear_input_buffer(){
+    while (get_current_char() != '\n' &&  !EOF );
+}
+
+int get_positive_integer(){
+    int i = 0, x = 0;
+    clear_input_buffer();
+    get_line();
+    while(current_word.tab_word[i] != '\0'){
+        if(current_word.tab_word[i] < '0' || current_word.tab_word[i] > '9') return -1;
+        printf("%d\n", current_word.tab_word[i]);
+        x = x * 10 + (current_word.tab_word[i] - '0');
+        i++;    
+    }
+    return x;
+}

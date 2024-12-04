@@ -44,18 +44,6 @@ void store_supply(char *response, int price) {
     }
 }
 
-int get_price(){
-    int x = 0;
-    fseek(stdin,0,SEEK_END);
-    start(NULL);
-    while(get_current_char() != '\n'){
-        if (get_current_char() < '0' || get_current_char() > '9') return -1;
-        x = x * 10 + (get_current_char() - '0');
-        adv();
-    }
-    return x;
-}
-
 void store_supply_main() {
 
     char response[100];
@@ -71,8 +59,8 @@ void store_supply_main() {
     int price = -1;
     if (is_same_string(response, "TERIMA")) {
         while (price == -1){
-            printf("Harga barang: ");
-            price = get_price();
+            printf("Silakan masukkan harga %s: ", qbarangs.name[qbarangs.head]);
+            price = get_positive_integer();
             if (price == -1) printf("Harga tidak valid silakan masukkan kembali\n");
         }
     } 

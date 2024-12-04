@@ -48,20 +48,21 @@ char test_wordl399(char *str, char c, int char_index){
 void wordl399(){
 
     int index = random_number_generator(0, 99), chance = 6;
-    char *word = wordlist[index], guess[6], answer[6][12];
+    char word[6], answer[6][12];
+    copy_string(wordlist[index], word);
+    upper_string(word);
     printf("Welcome to WORDL399, you have 6 chance to guess the word\n");
     for (int i = 0; i < 6; i++){
+        char guess[6];
         for (int j = 0; j < 6-i; j++){
             printf("_ _ _ _ _\n");
         }
-        printf("Masukan kata tebakan Anda: ");
-        get_line();
-        copy_string(word_to_string(current_word), guess);
         while (string_length(guess) != 5){
-            printf("Kata harus memiliki panjang 5\n");
+            if(guess[0] != '\0')printf("Kata harus memiliki panjang 5\n");
             printf("Masukan kata tebakan Anda: ");
             get_line();
             copy_string(word_to_string(current_word), guess);
+            upper_string(guess);
         }
         if (is_same_string(guess, word)){
             printf("Selamat, kamu berhasil menebak kata! Anda mendapatkan uang sebanyak 1500\n");
@@ -161,7 +162,7 @@ ListChallenge challenges = {
 };
 
 void challenge(){
-    char response[MAX_LEN], function[MAX_LEN], str[MAX_LEN];
+    char response[MAX_LEN], function[MAX_LEN], str[MAX_LEN]; boolean valid = false;
     printf("Daftar challenge yang tersedia:\n");
     for (int i = 0; i < challenges.count; i++){
         printf("%d. %s (biaya main = %d)\n", challenges.buffer[i].token, challenges.buffer[i].name, challenges.buffer[i].cost);
@@ -169,6 +170,15 @@ void challenge(){
     printf("Masukkan nomor challenge yang dipilih: ");
     get_line();
     copy_string(word_to_string(current_word), response);
+    // while(!valid){
+
+    // }
+    // while(response[i] != '\0'){
+    //     if(!(response[i] < '0' || response[i] > '9')){
+    //         return false;
+    //     }
+    //     i++;
+    // }
     for(int i = 0; i < challenges.count; i++){
         int_to_string(challenges.buffer[i].token, str);
         if(is_same_string(response, str)){

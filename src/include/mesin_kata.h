@@ -39,5 +39,7 @@ boolean validate_input(char *str);
 void delete_char(char *from, char *to);
 void int_to_string(int number, char *str);
 int string_length(char *str);
+void clear_input_buffer();
+int get_positive_integer();
 
 #endif
