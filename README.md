@@ -71,4 +71,5 @@ Untuk mengkompilasi program ini, gunakan langkah-langkah berikut:
 
 1. Pastikan Anda berada di direktori proyek.
 2. Run makefile
-3. File akan berjalan menampilkan Welcome page
+3. Jalankan main.exe 
+4. File akan berjalan menampilkan Welcome page
