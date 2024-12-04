@@ -10,11 +10,24 @@ void tebak_angka(){
         printf("Tebak angka (1-100) (sisa kesempatan:%d) : ", chance - i);
         start(NULL);
         int guess = 0;
+        boolean valid_input = true;
         while (get_current_char() != '\n' && !is_eop()) {
-                guess = guess * 10;
-                guess = guess + (get_current_char() - '0');
-                adv();
+            // input berupa angka
+            if (get_current_char() < '0' || get_current_char() > '9') {
+                valid_input = false;
+            } else {
+                guess = guess * 10 + (get_current_char() - '0');
             }
+            adv();
+        }
+
+        // jika inputan tidak valid (huruf or someting)
+        if (!valid_input || guess < 1 || guess > 100) {
+            printf("Input tidak valid. Masukkan angka antara 1-100.\n");
+            i--; // tidak mengurangi jumlah kesempatan
+            continue;
+        }
+
         if (guess == number){
             printf("Selamat, kamu berhasil menebak angka! Anda mendapatkan uang sebanyak %d\n", earning);
             add_money(&users, current_user.name, earning);
