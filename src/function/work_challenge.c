@@ -100,17 +100,6 @@ void wordl399(){
     printf("Kamu gagal menebak kata. Kata yang benar adalah %s\n", word);
 }
 
-// boolean is_found(char *guess, char *word){
-//     int i = 0;
-//     while (word[i] != '\0'){
-//         if (word[i] == guess[0]){
-//             return true;
-//         }
-//         i++;
-//     }
-//     return false;
-// }
-
 void quantum_wordl3(){
 //     int number_1 = random_number_generator(0, 99);
 //     int number_2 = random_number_generator(0, 99);
@@ -195,8 +184,11 @@ void challenge(){
     for(int i = 0; i < challenges.count; i++){
         int_to_string(challenges.buffer[i].token, str);
         if(is_same_string(response, str)){
-            reduce_money(&users, current_user.name, challenges.buffer[i].cost);
-            challenges.buffer[i].function();
+            if(current_user.money >= challenges.buffer[i].cost){ 
+                reduce_money(&users, current_user.name, challenges.buffer[i].cost);
+                challenges.buffer[i].function();
+            }
+            else printf("Uang tidak cukup. Silakan coba lagi\n");
             return;
         }
     }
