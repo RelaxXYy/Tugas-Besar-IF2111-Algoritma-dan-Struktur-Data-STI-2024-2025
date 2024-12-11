@@ -73,10 +73,16 @@ void load(char* filename) {
         add_user(&users, username, password, money);
         clear_string(username); clear_string(password);
     }
-    if(!(filename == NULL)){
-        is_session_started = true;
-        printf("Save file berhasil dibaca. PURRMART berhasil dijalankan.\n");
-        execute_command();
-    }
-    else return;
+    is_session_started = true;
+    is_user_logged_in = false;
+    printf("%s\n", "Konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.");
+    printf("****************************************\n");
+    printf("*    Silahkan Bergabung di PURRMART    *\n");
+    printf("****************************************\n");
+    printf("*   1. LOGIN                           *\n");
+    printf("*   2. REGISTER                        *\n");
+    printf("*   3. LOGOUT                          *\n");
+    printf("****************************************\n");
+    printf("*   Pilih Command atau ketik 'HELP'!   *\n");
+    printf("****************************************\n");
 }
