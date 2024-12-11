@@ -5,8 +5,12 @@
 
 void load(char* filename) {
     char file_path[MAX_LEN], default_path[MAX_LEN] = "save/";
+    create_list_barang(&barangs);
+    create_queue_barang(&qbarangs);
+    create_list_user(&users);
+    create_user(&current_user);
 
-    if (filename == NULL) copy_string("/save/default.txt", file_path);
+    if (filename == NULL) copy_string("save/default.txt", file_path);
     else concat_string(default_path, filename, file_path);
     if (fopen(file_path, "r") == NULL) {
         printf("Save file tidak ditemukan. PURRMART gagal dijalankan.\n");
@@ -14,12 +18,12 @@ void load(char* filename) {
         return;
     }
     start(file_path);
-    int num_barang = 0;
+    int total_barang = 0;
     while (get_current_char() != '\n' && !is_eop()) {
-        num_barang = num_barang * 10 + (get_current_char() - '0');
+        total_barang = total_barang * 10 + (get_current_char() - '0');
         adv();
     }
-    for (int i = 0; i < num_barang; i++) {
+    for (int i = 0; i < total_barang; i++) {
         adv();
         int price = 0;
         while (get_current_char() != ' ' && !is_eop()) {
@@ -37,20 +41,22 @@ void load(char* filename) {
         add_barang(&barangs, name, price);
     }
     adv();
-    int num_users = 0;
+    int total_users = 0;
     while (get_current_char() != '\n' && !is_eop()) {
-        num_users = num_users * 10 + (get_current_char() - '0');
+        total_users = total_users * 10 + (get_current_char() - '0');
         adv();
     }
-    for (int i = 0; i < num_users; i++) {
+    for (int i = 0; i < total_users; i++) {
         adv();
         int money = 0;
+        char username[NMax];
+        char password[NMax];
+        int total_wishlist = 0;
         while (get_current_char() != ' ' && !is_eop()) {
             money = money * 10 + (get_current_char() - '0');
             adv();
         }
         adv();
-        char username[NMax];
         int j = 0;
         while (get_current_char() != ' ' && !is_eop()) {
             username[j++] = get_current_char();
@@ -58,7 +64,6 @@ void load(char* filename) {
         }
         username[j] = '\0';
         adv();
-        char password[NMax];
         int k = 0;
         while (get_current_char() != '\n' && !is_eop()) {
             password[k++] = get_current_char();
@@ -66,6 +71,7 @@ void load(char* filename) {
         }
         password[k] = '\0';
         add_user(&users, username, password, money);
+        clear_string(username); clear_string(password);
     }
     if(!(filename == NULL)){
         is_session_started = true;

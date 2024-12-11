@@ -268,9 +268,16 @@ int get_positive_integer(){
     get_line();
     while(current_word.tab_word[i] != '\0'){
         if(current_word.tab_word[i] < '0' || current_word.tab_word[i] > '9') return -1;
-        printf("%d\n", current_word.tab_word[i]);
         x = x * 10 + (current_word.tab_word[i] - '0');
         i++;    
     }
     return x;
+}
+
+void clear_string(char* str){
+    int i = 0;
+    while(str[i] != '\0'){
+        str[i] = '\0';
+        i++;
+    }
 }

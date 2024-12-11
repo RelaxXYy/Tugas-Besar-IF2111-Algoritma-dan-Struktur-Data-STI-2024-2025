@@ -4,7 +4,7 @@
 #include "../include/all_ADT_headers.h"
 
 void save(char *filename) {
-    char file_path[MAX_LEN], default_path[MAX_LEN] = "/save/";
+    char file_path[MAX_LEN], default_path[MAX_LEN] = "save/";
     concat_string(default_path, filename, file_path);
     FILE *file = fopen(file_path, "w+");
     if(file == NULL) {

@@ -14,20 +14,12 @@ void create_list_user(ListUser *users) {
 }
 
 int user_count(ListUser *users) {
-    int i = 0;
-    while ((*users).buffer[i].name[0] != '\0') {
-        i++;
-    }
-    return i;
+    return (*users).count;
 }
 
 int user_index(ListUser *users, char *name) {
-    int i = 0;
-    while ((*users).buffer[i].name[0] != '\0') {
-        if (is_same_string((*users).buffer[i].name, name) == true) {
-            return i;
-        }
-        i++;
+    for(int i = 0; i<user_count(users); i++){
+        if(is_same_string((*users).buffer[i].name, name)) return i;
     }
     return -1;
 }
@@ -37,6 +29,7 @@ void add_user(ListUser *users, char *name, char *password, int money){
     copy_string(name, (*users).buffer[i].name);
     copy_string(password, (*users).buffer[i].password);
     (*users).buffer[i].money = money;
+    (*users).count ++;
 }
 
 boolean is_user_exist(ListUser *users, char *name){

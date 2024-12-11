@@ -34,11 +34,7 @@ char *wordlist[] = {
 
 int main(){
     char command[MAX_LEN];
-    create_list_barang(&barangs);
-    create_queue_barang(&qbarangs);
-    create_list_user(&users);
-    create_user(&current_user);
-
+    
     printf("   ___       __    ______                                 _____       \n");
     printf("  __ |     / /_______  /__________________ ________      __  /______ \n");
     printf("  __ | /| / /_  _ \\_  /_  ___/  __ \\_  __ `__ \\  _ \\     _  __/  __ \\\n");
