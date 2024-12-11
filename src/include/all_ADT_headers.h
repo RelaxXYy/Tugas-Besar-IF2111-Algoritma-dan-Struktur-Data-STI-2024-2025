@@ -2,7 +2,8 @@
 #define ALL_ADT_HEADERS_H
 
 #include "queue.h"
-#include "list.h"
+#include "list_dinamic.h"
+#include "list_static.h"
 #include "user.h"
 #include "mesin_karakter.h"
 #include "mesin_kata.h"
