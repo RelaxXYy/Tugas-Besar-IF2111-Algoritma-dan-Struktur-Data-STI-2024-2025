@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "../include/all_library_headers.h"
 #include "../include/all_ADT_headers.h"
 
-bool is_same_string(char *str1, char *str2) {
+// is_same_string sama copy_string keknya bisa diganti????
+
+int is_same_string(char *str1, char *str2) {
     int i = 0;
     while (str1[i] != '\0' && str2[i] != '\0') {
         if (str1[i] != str2[i]) {
-            return false; 
+            return 0; 
         }
         i++;
     }
     return (str1[i] == '\0' && str2[i] == '\0'); 
 }
 
-void copystring(char *dest, char *src) {
+void copy_string(char *dest, char *src) {
     int i = 0;
     while (src[i] != '\0') {
         dest[i] = src[i];
@@ -24,28 +25,28 @@ void copystring(char *dest, char *src) {
     dest[i] = '\0'; 
 }
 
-bool store_item_exists(Store *toko, char *namabarang) {
+int store_item_exists(Store *toko, char *namabarang) {
     for (int i = 0; i < toko->Count; i++) {
         if (is_same_string(toko->Items[i], namabarang)) {
-            return true;
+            return 1; 
         }
     }
-    return false;
+    return 0; 
 }
 
-bool wishlist_item_exists(LinkedListChar *wishlist, char *namabarang) {
+int wishlist_item_exists(LinkedListChar *wishlist, char *namabarang) {
     Address P = wishlist->First;
     while (P != NULL) {
         if (is_same_string(P->Nama, namabarang)) {
-            return true;
+            return 1; 
         }
         P = P->Next;
     }
-    return false;
+    return 0;
 }
 
-void wishlistadd(LinkedListChar *wishlist, Store *toko, char *namabarang) {
-    if (!store_item_exists(toko, namabarang)) {
+void wishlist_add(LinkedListChar *wishlist, Store *toko, char *namabarang) {
+    if (!store_item_exists(toko, namabarang)) { 
         printf("Tidak ada barang dengan nama %s di toko!\n", namabarang);
         return;
     }
@@ -55,14 +56,13 @@ void wishlistadd(LinkedListChar *wishlist, Store *toko, char *namabarang) {
         return;
     }
 
-    // add barang ke wishlist
     Address newNode = (Address) malloc(sizeof(ElementsChar));
     if (newNode != NULL) {
-        copystring(newNode->Nama, namabarang); 
+        copy_string(newNode->Nama, namabarang);
         newNode->Next = NULL;
 
         if (wishlist->First == NULL) { 
-            wishlist->First = newNode;
+            wishlist->First = newNode; 
         } else { 
             Address P = wishlist->First;
             while (P->Next != NULL) {
