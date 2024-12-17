@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
 #include "../include/all_library_headers.h"
 #include "../include/all_ADT_headers.h"
 
