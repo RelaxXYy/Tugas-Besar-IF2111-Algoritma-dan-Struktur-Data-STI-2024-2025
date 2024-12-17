@@ -7,7 +7,7 @@
 void store_remove(char *name) {
 
     if (!is_barang_exist(&barangs, name)) {
-        printf("Toko tidak menjual %s.\n", name);
+        printf("Toko tidak menjual \"%s\".\n", name);
         return;
     }
     else{

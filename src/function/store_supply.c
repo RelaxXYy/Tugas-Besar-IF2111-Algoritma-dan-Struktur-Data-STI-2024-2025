@@ -16,20 +16,20 @@ void store_supply(char *response, int price) {
         char name[MAX_LEN];
         dequeue_barang(&qbarangs, name);
         add_barang(&barangs, name, price);
-        printf("%s dengan harga %d telah ditambahkan ke toko.\n", name, price);
+        printf("\"%s\" dengan harga %d telah ditambahkan ke toko.\n", name, price);
     } 
     
     else if (is_same_string(response, "TUNDA")) {   
         char name[MAX_LEN];
         dequeue_barang(&qbarangs, name);
         enqueue_barang(&qbarangs, name);
-        printf("%s dikembalikan ke antrian.\n", name);
+        printf("\"%s\" dikembalikan ke antrian.\n", name);
     } 
     
     else if (is_same_string(response, "TOLAK")) {
         char name[MAX_LEN];
         dequeue_barang(&qbarangs, name);
-        printf("%s dihapuskan dari antrian.\n", name);
+        printf("\"%s\" dihapuskan dari antrian.\n", name);
     } 
 
     else if (is_same_string(response, "PURRY")) {
@@ -52,14 +52,14 @@ void store_supply_main() {
         printf("Tidak ada barang pada antrian.\n");
         execute_command();
     }
-    printf("Apakah kamu ingin menambahkan barang %s? (Terima/Tunda/Tolak/Purry) : ", qbarangs.name[qbarangs.head]);
+    printf("Apakah kamu ingin menambahkan barang \"%s\"? (Terima/Tunda/Tolak/Purry) : ", qbarangs.name[qbarangs.head]);
     get_line();
     copy_string(word_to_string(current_word), response);
     upper_string(response);
     int price = -1;
     if (is_same_string(response, "TERIMA")) {
         while (price == -1){
-            printf("Silakan masukkan harga %s: ", qbarangs.name[qbarangs.head]);
+            printf("Silakan masukkan harga \"%s\": ", qbarangs.name[qbarangs.head]);
             price = get_positive_integer();
             if (price == -1) printf("Harga tidak valid silakan masukkan kembali\n");
         }
