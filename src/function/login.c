@@ -10,7 +10,7 @@ void handle_login() {
     char password[MAX_LEN];
 
     if (is_user_logged_in) {
-        printf("Anda sudah login sebagai %s. Jika ingin login sebagai user lain, silakan logout terlebih dahulu.\n", current_user.name);
+        printf("Anda sudah login sebagai \"%s\". Jika ingin login sebagai user lain, silakan logout terlebih dahulu.\n", current_user.name);
         execute_command();
     }
 
