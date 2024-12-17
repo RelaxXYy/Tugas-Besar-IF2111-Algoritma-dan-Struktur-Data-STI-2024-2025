@@ -3,6 +3,8 @@
 #include "../include/all_library_headers.h"
 #include "../include/all_ADT_headers.h"
 
+// key : namabarang , value : kuantitas
+
 int is_same_string(char *str1, char *str2) {
     int i = 0;
     while (str1[i] != '\0' && str2[i] != '\0') {
