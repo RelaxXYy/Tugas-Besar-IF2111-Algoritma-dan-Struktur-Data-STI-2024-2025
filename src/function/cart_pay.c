@@ -8,22 +8,16 @@
 // Value = kuantitas barang di keranjang                (line 38)
 // Key = nama barang                                    (line 38)
 // Total = harga barang, total blm tau disimpen di mana (line 38)
-// push sama add_keranjang_to_riwayat ganti aja dan
+// add_keranjang_to_riwayat ganti aja dan
 // sumHarga = total harga barang yang harus dibayar, krn blm tau Total disimpen di mana, gw blm bisa bikin
-
-void push(Stack *S, int value) {
-    if (S->IndexTop < MaxEl - 1) {
-        S->IndexTop++;
-        S->Elements[S->IndexTop] = value;
-    }
-}
 
 void add_keranjang_to_riwayat(Map keranjang, Stack *riwayat_pembelian) {
     for (int i = 0; i < keranjang.Count; i++) {
-        int value = keranjang.Elements[i].Value;
-        push(riwayat_pembelian, value);
+        if (riwayat_pembelian->IndexTop < MaxEl - 1) {
+            riwayat_pembelian->IndexTop++;
+            riwayat_pembelian->Elements[riwayat_pembelian->IndexTop] = keranjang.Elements[i].Key;
+        }
     }
-    keranjang.Count = 0; 
 }
 
 void cartpay(char *response) {
