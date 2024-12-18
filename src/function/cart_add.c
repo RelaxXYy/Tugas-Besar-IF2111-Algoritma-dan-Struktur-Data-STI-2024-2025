@@ -23,22 +23,22 @@ void copy_string(char *dest, char *src) {
     dest[i] = '\0'; 
 }
 
-int store_item_exists(Store *toko, char *namabarang) {
-    for (int i = 0; i < toko->Count; i++) {
-        if (is_same_string(toko->Items[i], namabarang)) {
+int store_item_exists(Store *barangs, char *namabarang) {
+    for (int i = 0; i < barangs->Count; i++) {
+        if (is_same_string(barangs->Items[i], namabarang)) {
             return 1; 
         }
     }
     return 0; 
 }
 
-void cart_add(Map *keranjang, Store *toko, char *namabarang, int kuantitas) {
+void cart_add(Map *keranjang, Store *barangs, char *namabarang, int kuantitas) {
     if (kuantitas <= 0) {
         printf("Kuantitas tidak valid!\n");
         return;
     }
 
-    if (!store_item_exists(toko, namabarang)) {
+    if (!store_item_exists(barangs, namabarang)) {
         printf("Barang tidak ada di toko!\n");
         return;
     }
