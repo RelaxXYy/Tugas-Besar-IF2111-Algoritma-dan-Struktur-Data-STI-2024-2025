@@ -27,23 +27,23 @@ void cartpay(char *response) {
     printf("Kamu akan membeli barang-barang berikut.\n");
     printf("Kuantitas   Nama    Total\n");   
 
-    for (int i = 0; i < keranjang->Count; i++) {
+    for (int i = 0; i < keranjang.Count; i++) {
 
-        printf("%s  %d  %s\n", keranjang->Elements[i].Value, keranjang->Elements[i].Key, keranjang->Elements.Total);
+        printf("%s  %d  %s\n", keranjang.Elements[i].Value, keranjang.Elements[i].Key, keranjang.Elements.Total);
 
     }
 
     if (is_same_string(response, "YA")) {
         if (current_user.money >= harga) {
             current_user.money - harga;
-            keranjang->Count = 0;
+            keranjang.Count = 0;
         
             add_keranjang_to_riwayat();
 
             printf("Selamat kamu telah membeli barang yang ada di dalam keranjang!\n");
         }
         else {
-            printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", current_user.money)
+            printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", current_user.money);
         }
     }
 
