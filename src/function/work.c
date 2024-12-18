@@ -16,8 +16,8 @@ void wait_time(int seconds) {
     }
 }
 
-void handle_work(User *current_user) {
-    if ((*current_user).name[0] == '\0') {
+void handle_work() {
+    if (current_user.name[0] == '\0') {
         printf("Tidak ada pengguna yang sedang login. Silakan LOGIN terlebih dahulu.\n");
         return;
     }
@@ -63,6 +63,7 @@ void handle_work(User *current_user) {
     wait_time(selected_job.duration); // Waktu tunggu sesuai durasi pekerjaan
 
     // Tambahkan pendapatan ke akun pengguna
-    add_money(&users, (*current_user).name, selected_job.income);
-    printf("Pekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", selected_job.income);
+    add_money(&users, current_user.name, selected_job.income);
+    current_user.money += selected_job.income;
+    printf("\nPekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", selected_job.income);
 }
