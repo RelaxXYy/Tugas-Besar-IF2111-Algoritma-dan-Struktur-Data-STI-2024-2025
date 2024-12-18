@@ -5,7 +5,7 @@
 
 void profile() {
 
-    if (current_user.name[0] != '\0') {
+    if (is_user_logged_in) {
     printf("Nama    : %s\n", current_user.name);
     printf("Saldo   : %d\n", current_user.money);
     }
