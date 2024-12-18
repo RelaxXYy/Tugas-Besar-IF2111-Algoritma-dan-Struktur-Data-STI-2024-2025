@@ -25,9 +25,9 @@ void copy_string(char *dest, char *src) {
     dest[i] = '\0'; 
 }
 
-int store_item_exists(Store *toko, char *namabarang) {
-    for (int i = 0; i < toko->Count; i++) {
-        if (is_same_string(toko->Items[i], namabarang)) {
+int store_item_exists(Store *barangs, char *namabarang) {
+    for (int i = 0; i < barangs->Count; i++) {
+        if (is_same_string(barangs->Items[i], namabarang)) {
             return 1; 
         }
     }
@@ -45,8 +45,8 @@ int wishlist_item_exists(LinkedListChar *wishlist, char *namabarang) {
     return 0;
 }
 
-void wishlist_add(LinkedListChar *wishlist, Store *toko, char *namabarang) {
-    if (!store_item_exists(toko, namabarang)) { 
+void wishlist_add(LinkedListChar *wishlist, Store *barangs, char *namabarang) {
+    if (!store_item_exists(barangs, namabarang)) { 
         printf("Tidak ada barang dengan nama %s di toko!\n", namabarang);
         return;
     }
