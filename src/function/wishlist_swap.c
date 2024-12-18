@@ -33,8 +33,8 @@ void wishlistswap(LinkedListChar *wishlist, int pos_1, int pos_2) {
     Address P1 = NULL, P2 = NULL, P = wishlist->First;
     int index = 1; 
     while (P != NULL) {
-        if (index == pos1) P1 = P;
-        if (index == pos2) P2 = P;
+        if (index == pos_1) P1 = P;
+        if (index == pos_2) P2 = P;
         P = P->Next;
         index++;
     }
