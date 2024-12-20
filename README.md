@@ -37,31 +37,67 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 4. **REGISTER**  
    Mendaftarkan akun baru ke dalam sistem.
 
-5. **WORK**  
+5. **PROFILE**
+   Menampilkan data diri pengguna, termasuk username dan informasi terkait.
+
+6. **WORK**  
    Melakukan pekerjaan untuk mendapatkan uang.
 
-6. **WORK CHALLENGE**  
+7. **WORK CHALLENGE**  
    Menjalankan challenge untuk mendapatkan uang.
 
-7. **STORE LIST**  
+8. **STORE LIST**  
    Menampilkan daftar barang yang tersedia di toko.
 
-8. **STORE REQUEST**  
+9. **STORE REQUEST**  
    Meminta penambahan barang baru ke dalam toko.
 
-9. **STORE SUPPLY**  
+10. **STORE SUPPLY**  
    Menambahkan barang baru ke toko dari antrian permintaan.
 
-10. **STORE REMOVE**  
+11. **STORE REMOVE**  
     Menghapus barang dari toko.
 
-11. **SAVE `<filename>`**  
+12. **CART REMOVE <nama> <n>**
+    Mengurangi atau menghapus sejumlah (<n>) barang tertentu (<nama>) dari keranjang belanja.
+
+13. **CART SHOW**
+    Menampilkan semua barang yang ada di keranjang belanja pengguna.
+
+14. **CART PAY**
+    Membayar barang yang ada di keranjang belanja dan menyelesaikan transaksi.
+
+15. **HISTORY <n>**
+    Menampilkan <n> riwayat transaksi terakhir pengguna.
+
+16. **WISHLIST**
+    ADDMenambahkan barang ke dalam wishlist pengguna.
+
+17. **WISHLIST SWAP <i> <j>**
+    Menukar posisi dua barang dalam wishlist berdasarkan urutan <i> dan <j>.
+
+18. **WISHLIST REMOVE <i>**
+    Menghapus barang dari wishlist berdasarkan posisinya (<i>).
+
+19. **WISHLIST REMOVE**
+    Menghapus barang dari wishlist berdasarkan nama barangnya.
+
+20. **WISHLIST CLEAR**
+    Menghapus semua barang dari wishlist pengguna.
+
+21. **WISHLIST SHOW**
+    Menampilkan semua barang yang ada di wishlist pengguna.
+
+22. **LOGOUT**
+    Keluar dari sesi pengguna saat ini.
+
+23. **SAVE `<filename>`**  
     Menyimpan state aplikasi ke dalam file tertentu.
 
-12. **HELP**  
+24. **HELP**  
     Menampilkan daftar command yang tersedia beserta deskripsinya.
 
-13. **QUIT**  
+25. **QUIT**  
     Keluar dari aplikasi.
 
 ---
