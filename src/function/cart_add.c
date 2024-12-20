@@ -15,7 +15,7 @@ void cart_add(char *nama_barang, int kuantitas) {
         return;
     }
 
-    if (!store_item_exists(barangs, nama_barang)) {
+    if (!is_barang_exist(&barangs, nama_barang)) {
         printf("Barang tidak ada di toko!\n");
         return;
     }

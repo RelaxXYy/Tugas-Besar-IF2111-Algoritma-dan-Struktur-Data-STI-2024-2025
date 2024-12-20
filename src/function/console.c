@@ -4,14 +4,8 @@
 #include "../boolean.h"
 #include "../config.h"
 
-<<<<<<< HEAD
 void execute_command() {
     printf("Ketik command atau \"Help\"\n");
-=======
-void execute_command(){
-    printf("Ketik command atau \"Help\"\n");
-    printf("\n");
->>>>>>> e5469a7fba8e0abcb543f1a00544cf06e83c0ae8
     printf(">>> ");
     get_line();
     printf("\n");
