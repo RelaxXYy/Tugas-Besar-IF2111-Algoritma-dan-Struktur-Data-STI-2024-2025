@@ -4,7 +4,8 @@
 #include "../boolean.h"
 #include "../config.h"
 
-void execute_command() {
+void execute_command(){
+    printf("Ketik command atau \"Help\"\n");
     printf("\n");
     printf(">>> ");
     get_line();
