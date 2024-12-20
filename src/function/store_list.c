@@ -16,5 +16,5 @@ void store_list_main()
         printf("- %s\n", barangs.buffer[index].name);
         }
     }
-    execute_command();
+    return;
 }

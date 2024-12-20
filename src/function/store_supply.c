@@ -49,7 +49,7 @@ void store_supply_main() {
 
     if(is_queue_barang_empty(&qbarangs)) {
         printf("Tidak ada barang pada antrian.\n");
-        execute_command();
+        return;
     }
     printf("Apakah kamu ingin menambahkan barang \"%s\"? (Terima/Tunda/Tolak/Purry) : ", qbarangs.name[qbarangs.head]);
     get_line();
@@ -64,5 +64,5 @@ void store_supply_main() {
         }
     } 
     store_supply(response, price);
-    execute_command();
+    return;
 }

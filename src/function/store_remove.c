@@ -22,7 +22,7 @@ void store_remove_main() {
 
     if(barang_count(&barangs) == 0) {
         printf("Tidak ada barang di toko.\n");
-        execute_command();
+        return;
     }
     printf("Nama barang yang akan dihapus: ");
     get_line();
@@ -30,6 +30,6 @@ void store_remove_main() {
     store_remove(input);
     delete_cart(&current_user.cart, input);
     delete_wishlist(&current_user.wishlist, input);
-    execute_command();
+    return;
     
 }

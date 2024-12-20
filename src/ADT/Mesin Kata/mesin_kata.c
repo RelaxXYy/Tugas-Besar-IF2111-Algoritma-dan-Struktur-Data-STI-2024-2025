@@ -211,6 +211,17 @@ boolean is_letter_or_digit(char* str){
     return true;
 }
 
+boolean is_letter(char* str){
+    int i = 0;
+    while(str[i] != '\0'){
+        if((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z')){
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
 boolean validate_input(char* str){
     int i = 0;
     if (str[0] == '\0') {

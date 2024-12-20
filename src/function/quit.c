@@ -1,3 +1,4 @@
+#include "save.c"
 #include "../all_library_headers.h"
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
@@ -23,6 +24,7 @@ void quit(){
                 save(word_to_string(current_word));
                 printf("Kamu keluar dari PURRMART\n");
                 printf("Dadah ^_^/");
+                goodbye();
                 exit(0);
             }
             else printf("Nama file tidak valid\n");

@@ -35,6 +35,6 @@ void store_request_main() {
     get_line();
     copy_string(word_to_string(current_word), input);
     store_request(input);
-    execute_command();
+    return;
 
 }

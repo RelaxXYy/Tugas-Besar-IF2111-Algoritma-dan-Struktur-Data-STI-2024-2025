@@ -1,9 +1,9 @@
 #ifndef WORK_CHALLENGE_H
 #define WORK_CHALLENGE_H
 
-#include "all_library_headers.h"
-#include "boolean.h"
-#include "config.h"
+#include "../all_library_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
 typedef void (*ChallengeFunction)();
 

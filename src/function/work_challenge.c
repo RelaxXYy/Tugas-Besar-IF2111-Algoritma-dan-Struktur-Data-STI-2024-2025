@@ -211,6 +211,4 @@ void challenge(){
         }
     }
     printf("Challenge tidak valid. Silakan coba lagi.\n");
-    execute_command();
-
 }

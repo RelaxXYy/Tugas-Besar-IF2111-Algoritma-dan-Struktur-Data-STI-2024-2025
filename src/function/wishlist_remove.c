@@ -32,7 +32,7 @@ void remove_wishlist(char *n) {
     if (n[--index] != '\0') {
         printf("Penghapusan barang WISHLIST gagal dilakukan, input tidak valid!\n");
         return;
-    } else if (position > 0 && position <= count_whistlist(&current_user.wishlist)) {
+    } else if (position > 0 && position <= count_wishlist(&current_user.wishlist)) {
         Address P = current_user.wishlist.First;
         for (int i = 1; i < position; i++) {
             P = P->Next;

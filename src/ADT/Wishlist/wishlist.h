@@ -23,6 +23,7 @@ void dealokasi (Address *P);
 Address search_wishlist(Wishlist *wishlist, char *name);
 void insert_wishlist(Wishlist *wishlist, char *name);
 void delete_wishlist(Wishlist *wishlist, char *name);
+void swap_wishlist(Wishlist *wishlist, char *name1, char *name2);
 int count_wishlist(Wishlist *wishlist);
 void print_wishlist(Wishlist *wishlist);
 

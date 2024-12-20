@@ -40,9 +40,9 @@ void save(char *filename) {
             }           
         }
 
-        fprintf(file, "%d\n", users.buffer[i].wishlist_count);
-        if (users.buffer[i].wishlist_count != 0) {
-            Address P = users.buffer[i].wishlist->First;
+        fprintf(file, "%d\n", count_wishlist(&users.buffer[i].wishlist));
+        if (count_wishlist(&users.buffer[i].wishlist) != 0) {
+            Address P = users.buffer[i].wishlist.First;
             while (P != NULL) {
                 printf("%d\n", P->Nama);
                 P = P->Next;

@@ -1,4 +1,4 @@
-#include "all_function_headers.h"
+#include "console.c"
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
