@@ -1,9 +1,15 @@
-#include "../include/all_library_headers.h"
-#include "../include/all_ADT_headers.h"
-#include "../include/boolean.h"
-#include "../include/config.h"
+#include "../all_library_headers.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
 boolean isQuit;
+void goodbye() {
+    printf("\n~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\n");
+    printf("     Thank you for visiting PURRMART!    \n");
+    printf("         See u on another time!        \n");
+    printf("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\n\n");
+}
 
 void quit(){
     if (is_session_started){
@@ -23,6 +29,7 @@ void quit(){
         } else if (current_char == 'N' || current_char == 'n'){
             printf("Kamu keluar dari PURRMART\n");
             printf("Dadah ^_^/");
+            goodbye();
             exit(0);
         } else {
             printf("Input tidak valid\n");
@@ -30,6 +37,7 @@ void quit(){
     } else {
         printf("Kamu keluar dari PURRMART\n");
         printf("Dadah ^_^/");
+        goodbye();
         exit(0);
     }
     

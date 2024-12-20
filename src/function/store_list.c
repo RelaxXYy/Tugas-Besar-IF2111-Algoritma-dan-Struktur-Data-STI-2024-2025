@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include "../include/all_library_headers.h"
-#include "../include/all_ADT_headers.h"
-#include "../include/boolean.h"
-#include "../include/config.h"
+#include "../all_library_headers.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
+
 
 void store_list_main()
 {

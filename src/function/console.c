@@ -1,10 +1,17 @@
-#include "../include/all_library_headers.h"
-#include "../include/all_ADT_headers.h"
-#include "../include/boolean.h"
-#include "../include/config.h"
+#include "all_function_headers.h"
+#include "../all_library_headers.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
+<<<<<<< HEAD
 void execute_command() {
     printf("Ketik command atau \"Help\"\n");
+=======
+void execute_command(){
+    printf("Ketik command atau \"Help\"\n");
+    printf("\n");
+>>>>>>> ba22f2f22c4dd835f2d612acf168f3bf2f3618b2
     printf(">>> ");
     get_line();
     printf("\n");
@@ -30,8 +37,6 @@ void execute_command() {
         handle_register();
     } else if (is_same_string(command, "PROFILE") == true && is_session_started == true) {
         profile();
-    } else if (is_same_string(command, "CART ADD") == true && is_session_started == true) {
-        cart_add();
     } else if (is_same_string(command, "WORK") == true && is_user_logged_in == true && is_session_started == true) {
         handle_work(&current_user);
     } else if (is_same_string(command, "WORK CHALLENGE") == true && is_user_logged_in == true && is_session_started == true) {
