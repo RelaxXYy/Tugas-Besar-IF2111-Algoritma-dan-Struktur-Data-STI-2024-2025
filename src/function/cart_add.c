@@ -20,15 +20,15 @@ void cart_add(char *nama_barang, int kuantitas) {
         return;
     }
 
-    if (is_exist_in_cart(&current_user.cart, &barangs.buffer[barang_index(&barangs, nama_barang)])) {
+    if (is_exist_in_cart(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name)) {
         int temp_value;
-        temp_value = cart_value(&current_user.cart, &barangs.buffer[barang_index(&barangs, nama_barang)]);
-        delete_cart(&current_user.cart, &barangs.buffer[barang_index(&barangs, nama_barang)]);
-        insert_cart(&current_user.cart, &barangs.buffer[barang_index(&barangs, nama_barang)], temp_value + kuantitas);
+        temp_value = cart_value(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name);
+        delete_cart(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name);
+        insert_cart(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name, temp_value + kuantitas);
         printf("Berhasil menambahkan %d %s ke keranjang belanja (UPDATE)!\n", kuantitas, nama_barang);
     }
     else {
-        insert_cart(&current_user.cart, &barangs.buffer[barang_index(&barangs, nama_barang)], kuantitas);
+        insert_cart(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name, kuantitas);
         printf("Berhasil menambahkan %d %s ke keranjang belanja!\n", kuantitas, nama_barang);
     }
 }

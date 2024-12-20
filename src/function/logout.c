@@ -13,6 +13,6 @@ void handle_logout() {
     else{
         printf("Tidak ada user yang sedang login.\n");
     }
-    execute_command();
+    return;
     
 }

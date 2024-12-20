@@ -9,7 +9,7 @@ void handle_register() {
 
     if (is_user_logged_in) {
         printf("Anda sudah login sebagai \"%s\". Jika ingin register sebagai user lain, silakan logout terlebih dahulu.\n", current_user.name);
-        execute_command();
+        return;
     }
 
     printf("Username: ");  
@@ -47,16 +47,16 @@ void handle_register() {
 
     if (is_user_exist(&users, name)) {
         printf("Akun dengan username \"%s\" sudah digunakan. Silakan coba username lain! \n", name);
-        execute_command();
+        return;
     }
     
     if (user_count(&users) == MAX_USER) {
         printf("Kapasitas pengguna penuh. Registrasi tidak dapat dilakukan.\n");
-        execute_command();
+        return;
     }
     add_user(&users, name, password, 0);
     current_user = users.buffer[user_index(&users, name)];
     printf("Akun dengan username \"%s\" berhasil dibuat.\n", name);
     is_user_logged_in = true;
-    execute_command();
+    return;
 }

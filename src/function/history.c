@@ -18,5 +18,5 @@ void history(int n)
 			}
 		}
 	}
-	execute_command();
+	return;
 }

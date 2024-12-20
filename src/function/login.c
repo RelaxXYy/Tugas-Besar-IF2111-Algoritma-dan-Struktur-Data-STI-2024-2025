@@ -53,6 +53,6 @@ void handle_login() {
     } else {
         printf("Username atau Password salah. Coba lagi.\n");
     }
-    execute_command();
+    return;
     
 }

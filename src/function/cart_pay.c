@@ -1,18 +1,19 @@
-#include <stdio.h>
+#include "../all_library_headers.h"
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
 
 void add_cart_to_history() {
+    History temp_history = current_user.riwayat_pembelian;
     for (int i = 0; i < current_user.cart.count; i++) {
-        add_cart_to_history(&history_temp, barangs.buffer[index_barang(current_user.cartElement[i].name)], current_user.cart.CartElement[i].amount);
+        add_cart_to_history(&temp_history, barangs.buffer[barang_index(&barangs,current_user.cart.CartElement[i].name)], current_user.cart.CartElement[i].amount);
     }
 }
 
-void totalharga() {
+int totalharga() {
     int tot = 0;
     for (int i = 0; i < current_user.cart.count; i++) {
-        int tot += harga_barang(&barangs, current_user.cart.CartElement[i].name) * current_user.cart.CartElement[i].amount;
+        int tot = tot + harga_barang(&barangs, current_user.cart.CartElement[i].name) * current_user.cart.CartElement[i].amount;
     }
 }
 
@@ -34,11 +35,11 @@ void cartpay(char *response) {
         }
 
         else if (is_cart_empty) {
-            printf("Keranjang kosong.")
+            printf("Keranjang kosong.");
         }
 
         else {
-            printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", current_user.money)
+            printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", current_user.money);
         }
     }
 
@@ -53,14 +54,13 @@ void cartpay(char *response) {
 }
 
 void cartpay_main() {
-
-    cartpay();
     char response[100];
+    cartpay(response);
     printf("Total biaya yang harus dikeluarkan adalah %d, apakah jadi dibeli? (Ya/Tidak): ", totalharga());
 
     get_line();
     copy_string(word_to_string(current_word), response);
     upper_string(response);
-    execute_command();
+    return;
 
 }
