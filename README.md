@@ -58,38 +58,48 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 12. **STORE REMOVE**  
     Menghapus barang dari toko.
 
-13. **CART REMOVE <nama> <n>**
-    Mengurangi atau menghapus sejumlah (<n>) barang tertentu (<nama>) dari keranjang belanja.
 
-14. **CART SHOW**
+12. **CART REMOVE `<nama>` `<n>`**  
+    Mengurangi atau menghapus sejumlah barang tertentu dari keranjang belanja.
+
+13. **CART SHOW**  
     Menampilkan semua barang yang ada di keranjang belanja pengguna.
 
-15. **CART PAY**
+14. **CART PAY**  
     Membayar barang yang ada di keranjang belanja dan menyelesaikan transaksi.
 
-16. **HISTORY <n>**
-    Menampilkan <n> riwayat transaksi terakhir pengguna.
+15. **HISTORY `<n>`**  
+    Menampilkan `<n>` riwayat transaksi terakhir pengguna.
 
-17. **WISHLIST ADD**
+16. **WISHLIST ADD**  
     Menambahkan barang ke dalam wishlist pengguna.
 
-18. **WISHLIST SWAP <i> <j>**
-    Menukar posisi dua barang dalam wishlist berdasarkan urutan <i> dan <j>.
+17. **WISHLIST SWAP `<i>` `<j>`**  
+    Menukar posisi dua barang dalam wishlist berdasarkan urutan `<i>` dan `<j>`.
 
-20. **WISHLIST REMOVE <i>**
-    Menghapus barang dari wishlist berdasarkan posisinya (<i>).
+18. **WISHLIST REMOVE `<i>`**  
+    Menghapus barang dari wishlist berdasarkan posisinya.
 
-22. **WISHLIST REMOVE**
+19. **WISHLIST REMOVE `<nama>`**  
     Menghapus barang dari wishlist berdasarkan nama barangnya.
 
-23. **WISHLIST CLEAR**
+20. **WISHLIST CLEAR**  
     Menghapus semua barang dari wishlist pengguna.
 
-24. **WISHLIST SHOW**
+21. **WISHLIST SHOW**  
     Menampilkan semua barang yang ada di wishlist pengguna.
 
-25. **LOGOUT**
+22. **LOGOUT**  
     Keluar dari sesi pengguna saat ini.
+
+23. **SAVE `<filename>`**  
+    Menyimpan state aplikasi ke dalam file tertentu.
+
+24. **HELP**  
+    Menampilkan daftar command yang tersedia beserta deskripsinya.
+
+25. **QUIT**  
+    Keluar dari aplikasi.
 
 26. **SAVE `<filename>`**  
     Menyimpan state aplikasi ke dalam file tertentu.
