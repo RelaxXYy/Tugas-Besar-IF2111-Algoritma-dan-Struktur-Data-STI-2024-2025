@@ -1,49 +1,44 @@
 #include <stdio.h>
-#include "../include/all_library_headers.h"
-#include "../include/all_ADT_headers.h"
-#include "../include/boolean.h"
-#include "../include/config.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
-// NOTES
-// Value = kuantitas barang di keranjang                (line 38)
-// Key = nama barang                                    (line 38)
-// Total = harga barang, total blm tau disimpen di mana (line 38)
-// add_keranjang_to_riwayat ganti aja dan
-// sumHarga = total harga barang yang harus dibayar, krn blm tau Total disimpen di mana, gw blm bisa bikin
+void add_cart_to_history() {
+    for (int i = 0; i < current_user.cart.count; i++) {
+        add_cart_to_history(&history_temp, barangs.buffer[index_barang(current_user.cartElement[i].name)], current_user.cart.CartElement[i].amount);
+    }
+}
 
-void add_keranjang_to_riwayat(Map keranjang, Stack *riwayat_pembelian) {
-    for (int i = 0; i < keranjang.Count; i++) {
-        if (riwayat_pembelian->IndexTop < MaxEl - 1) {
-            riwayat_pembelian->IndexTop++;
-            riwayat_pembelian->Elements[riwayat_pembelian->IndexTop] = keranjang.Elements[i].Key;
-        }
+void totalharga() {
+    int tot = 0;
+    for (int i = 0; i < current_user.cart.count; i++) {
+        int tot += harga_barang(&barangs, current_user.cart.CartElement[i].name) * current_user.cart.CartElement[i].amount;
     }
 }
 
 void cartpay(char *response) {
-
-    int sumValue;
-
     printf("Kamu akan membeli barang-barang berikut.\n");
-    printf("Kuantitas   Nama    Total\n");   
-
-    for (int i = 0; i < keranjang.Count; i++) {
-
-        printf("%s  %d  %s\n", keranjang.Elements[i].Value, keranjang.Elements[i].Key, keranjang.Elements.Total);
-
+    printf("\nKuantitas\tNama\tTotal\t\n");
+    for (int i = 0; i < current_user.cart.count; i++){
+        printf("%d\t\t%s\t%d\t\t\n", current_user.cart.CartElement[i].amount, current_user.cart.CartElement[i].name, harga_barang(&barangs, current_user.cart.CartElement[i].name) * current_user.cart.CartElement[i].amount);
     }
 
     if (is_same_string(response, "YA")) {
-        if (current_user.money >= harga) {
-            current_user.money - harga;
-            keranjang.Count = 0;
+        if (current_user.money >= totalharga()) {
+            current_user.money - totalharga();
+            current_user.cart.count = 0;
         
-            add_keranjang_to_riwayat();
+            add_cart_to_history();
 
             printf("Selamat kamu telah membeli barang yang ada di dalam keranjang!\n");
         }
+
+        else if (is_cart_empty) {
+            printf("Keranjang kosong.")
+        }
+
         else {
-            printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", current_user.money);
+            printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", current_user.money)
         }
     }
 
@@ -60,10 +55,8 @@ void cartpay(char *response) {
 void cartpay_main() {
 
     cartpay();
-
     char response[100];
-
-    printf("Total biaya yang harus dikeluarkan adalah %d, apakah jadi dibeli? (Ya/Tidak): ", sumHarga);
+    printf("Total biaya yang harus dikeluarkan adalah %d, apakah jadi dibeli? (Ya/Tidak): ", totalharga());
 
     get_line();
     copy_string(word_to_string(current_word), response);
