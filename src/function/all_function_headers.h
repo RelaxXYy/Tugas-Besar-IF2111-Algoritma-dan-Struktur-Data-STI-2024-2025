@@ -24,6 +24,7 @@
 #include "wishlist_remove.c"
 #include "wishlist_show.c"
 #include "wishlist_swap.c"
+#include "work.c"
 #include "work_challenge.h"
 
 #endif
