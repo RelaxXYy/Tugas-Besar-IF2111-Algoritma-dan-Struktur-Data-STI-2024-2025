@@ -138,6 +138,7 @@ void load(char* filename) {
     }
     is_session_started = true;
     is_user_logged_in = false;
+    
     printf("%s\n", "Konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.");
     printf("****************************************\n");
     printf("*    Silahkan Bergabung di PURRMART    *\n");
