@@ -37,7 +37,7 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 4. **REGISTER**  
    Mendaftarkan akun baru ke dalam sistem.
 
-5. **PROFILE**
+5. **PROFILE**  
    Menampilkan data diri pengguna, termasuk username dan informasi terkait.
 
 7. **WORK**  
