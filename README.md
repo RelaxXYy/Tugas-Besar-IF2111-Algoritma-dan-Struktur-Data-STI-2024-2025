@@ -55,22 +55,22 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 10. **STORE SUPPLY**  
    Menambahkan barang baru ke toko dari antrian permintaan.
 
-11. **STORE REMOVE**  
+12. **STORE REMOVE**  
     Menghapus barang dari toko.
 
-12. **CART REMOVE <nama> <n>**
+13. **CART REMOVE <nama> <n>**
     Mengurangi atau menghapus sejumlah (<n>) barang tertentu (<nama>) dari keranjang belanja.
 
-13. **CART SHOW**
+14. **CART SHOW**
     Menampilkan semua barang yang ada di keranjang belanja pengguna.
 
-14. **CART PAY**
+15. **CART PAY**
     Membayar barang yang ada di keranjang belanja dan menyelesaikan transaksi.
 
-15. **HISTORY <n>**
+16. **HISTORY <n>**
     Menampilkan <n> riwayat transaksi terakhir pengguna.
 
-16. **WISHLIST ADD**
+17. **WISHLIST ADD**
     Menambahkan barang ke dalam wishlist pengguna.
 
 18. **WISHLIST SWAP <i> <j>**
