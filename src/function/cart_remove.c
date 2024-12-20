@@ -1,53 +1,33 @@
-#include "../include/all_library_headers.h"
-#include "../include/all_ADT_headers.h"
+#include "../all_library_headers.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
-// key : namabarang , value : kuantitas
+void cart_remove(Cart *keranjang, char *nama_barang, int kuantitas) {
 
-int is_same_string(char *str1, char *str2) {
-    int i = 0;
-    while (str1[i] != '\0' && str2[i] != '\0') {
-        if (str1[i] != str2[i]) {
-            return 0; 
-        }
-        i++;
+    if (barang_index(&barangs, nama_barang) == -1) {
+        printf("Barang tidak ada di toko!\n");
+        return;
     }
-    return (str1[i] == '\0' && str2[i] == '\0'); 
-}
 
-void cart_remove(Map *keranjang, char *namabarang, int kuantitas) {
-    if (kuantitas <= 0) {
+    if (kuantitas <=0 || kuantitas < cart_value(keranjang, &barangs.buffer[barang_index(&barangs, nama_barang)])) {
         printf("Kuantitas tidak valid!\n");
         return;
     }
 
-    int index = -1;
-
-    for (int i = 0; i < keranjang->Count; i++) {
-        if (is_same_string(keranjang->Elements[i].Key, namabarang)) { 
-            index = i;
-            break;
-        }
-    }
-
-    if (index == -1) { 
+    if (!is_exist_in_cart(keranjang, &barangs.buffer[barang_index(&barangs, nama_barang)])) {
         printf("Barang tidak ada di keranjang belanja!\n");
         return;
     }
 
-    if (keranjang->Elements[index].Value < kuantitas) {
-        printf("Tidak berhasil mengurangi, hanya terdapat %d %s pada keranjang!\n", keranjang->Elements[index].Value, namabarang);
-        return;
-    }
-
-    keranjang->Elements[index].Value -= kuantitas;
-    if (keranjang->Elements[index].Value == 0) { 
-        for (int i = index; i < keranjang->Count - 1; i++) {
-            keranjang->Elements[i] = keranjang->Elements[i + 1]; 
-        }
-        keranjang->Count--;
-        printf("Berhasil menghapus %s dari keranjang belanja!\n", namabarang);
+    int temp_value;
+    temp_value = cart_value(keranjang, &barangs.buffer[barang_index(&barangs, nama_barang)]);
+    delete_cart(keranjang, &barangs.buffer[barang_index(&barangs, nama_barang)]);
+    temp_value -= kuantitas;
+    if (temp_value > 0) {
+        insert_cart(keranjang, &barangs.buffer[barang_index(&barangs, nama_barang)], temp_value);
+        printf("Berhasil mengurangi %d %s dari keranjang belanja (UPDATE)!\n", kuantitas, nama_barang);
     } else {
-        printf("Berhasil mengurangi %d %s dari keranjang belanja!\n", kuantitas, namabarang);
+        printf("Berhasil menghapus %s dari keranjang belanja!\n", nama_barang);
     }
-    printf("// Kembali ke menu utama\n");
 }

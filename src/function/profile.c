@@ -1,11 +1,11 @@
-#include "../include/all_library_headers.h"
-#include "../include/all_ADT_headers.h"
-#include "../include/boolean.h"
-#include "../include/config.h"
+#include "../all_library_headers.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
 void profile() {
 
-    if (is_user_logged_in) {
+    if (current_user.name[0] != '\0') {
     printf("Nama    : %s\n", current_user.name);
     printf("Saldo   : %d\n", current_user.money);
     }

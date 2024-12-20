@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "save.h"
-#include "../include/all_ADT_headers.h"
+#include "../all_library_headers.h"
+#include "../ADT/all_ADT_headers.h"
+#include "../boolean.h"
+#include "../config.h"
 
 // NOTES
 // line 33 = print jumlah riwayat pembelian
@@ -30,10 +30,13 @@ void save(char *filename) {
 
         fprintf(file, "%d %s %s\n", users.buffer[i].money, users.buffer[i].name, users.buffer[i].password);
 
-        fprintf(file, "%d\n", users.buffer[i].riwayat_pembelian->IndexTop + 1);
-        if ((users.buffer[i].riwayat_pembelian->IndexTop + 1) != 0) {
-            for (int i = users.buffer[i].riwayat_pembelian->IndexTop; i >= 0; i--) {
-                printf("- %s %d\n", users.buffer[i].riwayat_pembelian->Elements[i], users.buffer[i].riwayat_pembelian->Price[i]);
+        fprintf(file, "%d\n", users.buffer[i].riwayat_pembelian.IndexTop + 1);
+        if ((users.buffer[i].riwayat_pembelian.IndexTop + 1) != 0) {
+            for (int i = 0; i < users.buffer[i].riwayat_pembelian.IndexTop; i++) {
+                printf("%d %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->amount);
+                for (int j = 0; j < users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangCount; j++) {
+                    fprintf(file, "- %s %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs[j].buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs[j].amount);
+                }
             }           
         }
 

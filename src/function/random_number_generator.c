@@ -1,7 +1,7 @@
-#include "../include/all_library_headers.h"
+#include "../all_library_headers.h"
 #include "../include/all_ADT_headers.h"
-#include "../include/boolean.h"
-#include "../include/config.h"
+#include "../boolean.h"
+#include "../config.h"
 
 int random_number_generator(int min, int max) {
     unsigned seed = time(NULL);
