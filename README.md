@@ -40,19 +40,19 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 5. **PROFILE**
    Menampilkan data diri pengguna, termasuk username dan informasi terkait.
 
-6. **WORK**  
+7. **WORK**  
    Melakukan pekerjaan untuk mendapatkan uang.
 
-7. **WORK CHALLENGE**  
+8. **WORK CHALLENGE**  
    Menjalankan challenge untuk mendapatkan uang.
 
-8. **STORE LIST**  
+9. **STORE LIST**  
    Menampilkan daftar barang yang tersedia di toko.
 
-9. **STORE REQUEST**  
+10. **STORE REQUEST**  
    Meminta penambahan barang baru ke dalam toko.
 
-10. **STORE SUPPLY**  
+11. **STORE SUPPLY**  
    Menambahkan barang baru ke toko dari antrian permintaan.
 
 12. **STORE REMOVE**  
