@@ -7,6 +7,7 @@
 void add_cart_to_history() {
     History temp_history = current_user.riwayat_pembelian;
     for (int i = 0; i < current_user.cart.count; i++) {
+        HistoryElement temp_history_element;
         add_cart_to_history(&temp_history, barangs.buffer[barang_index(&barangs,current_user.cart.CartElement[i].name)], current_user.cart.CartElement[i].amount);
     }
 }
@@ -27,7 +28,7 @@ void cart_pay(char *response) {
 
     if (is_same_string(response, "YA")) {
         if (current_user.money >= totalharga()) {
-            current_user.money - totalharga();
+            current_user.money = current_user.money - totalharga();
             current_user.cart.count = 0;
         
             add_cart_to_history();
