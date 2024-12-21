@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "wishlist_add.h"
 
 void wishlist_add(char *nama_barang, int quantity) {
     if (!is_barang_exist(&barangs, nama_barang)) { 

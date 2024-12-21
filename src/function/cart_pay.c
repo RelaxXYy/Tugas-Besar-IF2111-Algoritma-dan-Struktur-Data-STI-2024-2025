@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "cart_pay.h"
 
 void add_cart_to_history() {
     History temp_history = current_user.riwayat_pembelian;
@@ -17,7 +18,7 @@ int totalharga() {
     }
 }
 
-void cartpay(char *response) {
+void cart_pay(char *response) {
     printf("Kamu akan membeli barang-barang berikut.\n");
     printf("\nKuantitas\tNama\tTotal\t\n");
     for (int i = 0; i < current_user.cart.count; i++){
@@ -53,9 +54,9 @@ void cartpay(char *response) {
 
 }
 
-void cartpay_main() {
+void cart_pay_main() {
     char response[100];
-    cartpay(response);
+    cart_pay(response);
     printf("Total biaya yang harus dikeluarkan adalah %d, apakah jadi dibeli? (Ya/Tidak): ", totalharga());
 
     get_line();

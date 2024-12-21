@@ -1,12 +1,14 @@
 #ifndef USER_H
 #define USER_H
 
-#include "../../all_library_headers.h"
 #include "../History/history.h"
 #include "../Cart/cart.h"
 #include "../Wishlist/wishlist.h"
+#include "../../all_library_headers.h"
 #include "../../boolean.h"
 #include "../../config.h"
+
+
 
 typedef struct {
     char name[MAX_LEN];

@@ -1,7 +1,7 @@
 #ifndef WISHLIST_H
 #define WISHLIST_H
 
-#include "../all_ADT_headers.h"
+#include "../Mesin_Kata/mesin_kata.h"
 #include "../../config.h"
 #include "../../boolean.h"
 

@@ -1,7 +1,7 @@
 #ifndef HISTORY_H
 #define HISTORY_H
 
-#include "../all_ADT_headers.h"
+#include "../Barang/barang.h"
 #include "../../config.h"
 #include "../../boolean.h"
 

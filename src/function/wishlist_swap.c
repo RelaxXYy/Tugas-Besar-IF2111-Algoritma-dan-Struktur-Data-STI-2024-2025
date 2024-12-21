@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "wishlist_swap.h"
 
 void wishlist_swap(char *nama_barang1, char *nama_barang2) {
     if (is_wishlist_empty(&current_user.wishlist)) {

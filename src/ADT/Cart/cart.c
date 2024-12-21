@@ -38,7 +38,7 @@ void delete_cart(Cart *cart, char *name) {
     }
 }
 
-boolean is_exist_in_cart(Cart *cart, Barang *barang) {
-    return (cart_value(&cart, barang->name) > 0);
+boolean is_exist_in_cart(Cart *cart, char *name) {
+    return (cart_value(cart, name) > 0);
 }
 

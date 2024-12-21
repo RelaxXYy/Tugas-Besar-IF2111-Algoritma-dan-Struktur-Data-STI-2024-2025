@@ -1,6 +1,8 @@
 #ifndef BARANG_H
 #define BARANG_H
 
+#include "../Mesin_Karakter/mesin_karakter.h"
+#include "../Mesin_Kata/mesin_kata.h"
 #include "../../all_library_headers.h"
 #include "../../boolean.h"
 #include "../../config.h"

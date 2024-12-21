@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "cart_show.h"
 
 void cart_show(){
     if (is_cart_empty(&current_user.cart)){

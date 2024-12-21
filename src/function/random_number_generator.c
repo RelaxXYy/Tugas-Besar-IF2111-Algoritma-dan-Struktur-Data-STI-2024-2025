@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "random_number_generator.h"
 
 int random_number_generator(int min, int max) {
     unsigned seed = time(NULL);

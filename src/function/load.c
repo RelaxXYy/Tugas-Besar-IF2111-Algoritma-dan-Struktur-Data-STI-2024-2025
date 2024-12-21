@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "load.h"
 
 void load(char* filename) {
     char file_path[MAX_LEN], default_path[MAX_LEN] = "save/";

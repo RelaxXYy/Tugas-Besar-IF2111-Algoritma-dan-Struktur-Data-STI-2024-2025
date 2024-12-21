@@ -2,12 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
-
-typedef struct {
-    char name[MAX_LEN];
-    int income;
-    int duration;
-} Job;
+#include "work.h"
 
 void wait_time(int seconds) {
     time_t start_time = time(NULL);

@@ -1,7 +1,7 @@
 #ifndef MESINKATA_H
 #define MESINKATA_H
 
-#include "../all_ADT_headers.h"
+#include "../Mesin_Karakter/mesin_karakter.h"
 #include "../../boolean.h"
 #include "../../config.h"
 

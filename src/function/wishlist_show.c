@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "wishlist_show.h"
 
 void wishlist_show() {
     if (is_wishlist_empty(&current_user.wishlist)) {

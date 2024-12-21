@@ -2,15 +2,16 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "wishlist_remove.h"
 
-void remove_wishlist(char *n) {
+void remove_wishlist(char *input) {
 
     if (is_wishlist_empty(&current_user.wishlist)) {
         printf("Penghapusan barang WISHLIST gagal dilakukan, WISHLIST kosong!\n");
         return;
     }
 
-    if (n[0] == '\0') {
+    if (input[0] == '\0') {
         char response[MAX_LEN];
         printf("\nMasukkan nama barang yang akan dihapus :");
         get_line();
@@ -25,11 +26,11 @@ void remove_wishlist(char *n) {
     }
 
     int index = 0, position = 0;
-    while(n[index] < '0' || n[index] > '9') {
-        position = position * 10 + (n[index] - '0');
+    while(input[index] < '0' || input[index] > '9') {
+        position = position * 10 + (input[index] - '0');
         index++;
     }
-    if (n[--index] != '\0') {
+    if (input[--index] != '\0') {
         printf("Penghapusan barang WISHLIST gagal dilakukan, input tidak valid!\n");
         return;
     } else if (position > 0 && position <= count_wishlist(&current_user.wishlist)) {

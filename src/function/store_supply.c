@@ -2,6 +2,7 @@
 #include "../ADT/all_ADT_headers.h"
 #include "../boolean.h"
 #include "../config.h"
+#include "store_supply.h"
 
 void store_supply(char *response, int price) {
 
