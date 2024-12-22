@@ -2,6 +2,7 @@
 
 
 void execute_command() {
+    printf("\n");
     printf("Ketik command atau \"Help\"\n");
     printf(">>> ");
     get_line();
@@ -25,7 +26,7 @@ void execute_command() {
         handle_logout();
     } else if (is_same_string(command, "REGISTER") == true && is_session_started == true) {
         handle_register();
-    } else if (is_same_string(command, "PROFILE") == true && is_session_started == true) {
+    } else if (is_same_string(command, "PROFILE") == true && is_user_logged_in && is_session_started == true) {
         profile();
     } else if (is_same_string(command, "WORK") == true && is_user_logged_in == true && is_session_started == true) {
         handle_work(&current_user);
@@ -42,7 +43,6 @@ void execute_command() {
         ignore_first_word(input, no_first_word);
         save(no_first_word);
     } else if (is_same_string(command, "QUIT" ) == true) {
-        printf("Kamu keluar dari PURRMART, %s\n", input);
         quit();
     } else if (is_same_string(command, "BIO WEAPON") == true && is_session_started == true && is_user_logged_in == true) {
         bioweapon_main();
