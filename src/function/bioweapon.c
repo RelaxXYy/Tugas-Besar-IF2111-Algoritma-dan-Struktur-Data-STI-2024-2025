@@ -122,11 +122,7 @@ void bioweapon_main() {
 
     rna_translation(weapon.DNA, rnaSequence);
     protein_translation(rnaSequence, proteins, protein_lengths);
-
-    for (int offset = 0; offset < 3; offset++) {
-        printf("Protein (frame %d): %s\n", offset, proteins[offset]);
-    }
-
+    
     int found = 0;
     for (int offset = 0; offset < 3; offset++) {
         for (int i = 0; i < protein_lengths[offset]; i++) {

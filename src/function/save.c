@@ -4,12 +4,6 @@
 #include "../config.h"
 #include "save.h"
 
-// NOTES
-// line 33 = print jumlah riwayat pembelian
-// line 34 = print semua nama barang dan harga di riwayat pembelian bagi setiap user
-// line 39 = print jumlah wishlist (wishlist_count ngawang)
-// line 41--45 = print nama semua wishlist bagi setiap user
-
 void save(char *filename) {
     char file_path[MAX_LEN], default_path[MAX_LEN] = "save/";
     concat_string(default_path, filename, file_path);
@@ -34,7 +28,7 @@ void save(char *filename) {
         fprintf(file, "%d\n", users.buffer[i].riwayat_pembelian.IndexTop + 1);
         if ((users.buffer[i].riwayat_pembelian.IndexTop + 1) != 0) {
             for (int i = 0; i < users.buffer[i].riwayat_pembelian.IndexTop; i++) {
-                printf("%d %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->amount);
+                fprintf(file, "%d %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->amount);
                 for (int j = 0; j < users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangCount; j++) {
                     fprintf(file, "- %s %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs[j].buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs[j].amount);
                 }
@@ -45,7 +39,7 @@ void save(char *filename) {
         if (count_wishlist(&users.buffer[i].wishlist) != 0) {
             Address P = users.buffer[i].wishlist.First;
             while (P != NULL) {
-                printf("%d\n", P->Nama);
+                fprintf(file, "%d\n", P->Nama);
                 P = P->Next;
             } 
         }
