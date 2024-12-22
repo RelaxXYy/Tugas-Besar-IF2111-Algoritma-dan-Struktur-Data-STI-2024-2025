@@ -11,6 +11,7 @@
 #define MAX_STACK 50 // Maximum length of a stack (static)
 
 extern boolean is_session_started;
+extern boolean is_user_logged_in;
 
 extern char *wordlist[];
 
