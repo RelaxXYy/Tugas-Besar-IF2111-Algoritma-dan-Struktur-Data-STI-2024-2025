@@ -3,7 +3,7 @@
 #include "../boolean.h"
 #include "../config.h"
 
-int main() {
+int driver_wishlist() {
     Wishlist wishlist;
     create_wishlist(&wishlist);
 

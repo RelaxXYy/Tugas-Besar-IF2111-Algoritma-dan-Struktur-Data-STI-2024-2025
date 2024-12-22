@@ -3,7 +3,7 @@
 #include "../boolean.h"
 #include "../config.h"
 
-int main() {
+int driver_barang() {
     ListBarang listBarang;
     create_list_barang(&listBarang);
 

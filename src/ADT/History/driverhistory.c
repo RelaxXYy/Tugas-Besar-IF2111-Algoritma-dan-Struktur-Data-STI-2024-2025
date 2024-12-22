@@ -3,7 +3,7 @@
 #include "../boolean.h"
 #include "../config.h"
 
-int main() {
+int driver_history() {
     History history;
     HistoryElement historyElement;
 
