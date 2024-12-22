@@ -1,9 +1,7 @@
-#include "../all_library_headers.h"
-#include "../ADT/all_ADT_headers.h"
-#include "../boolean.h"
-#include "../config.h"
+#include <stdio.h>
+#include "barang.h"
 
-int driver_barang() {
+int main() {
     ListBarang listBarang;
     create_list_barang(&listBarang);
 
