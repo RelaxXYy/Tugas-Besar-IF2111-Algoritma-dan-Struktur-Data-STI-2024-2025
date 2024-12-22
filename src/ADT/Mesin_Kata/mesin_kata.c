@@ -230,7 +230,7 @@ boolean is_digit(char* str){
         }
         i++;
     }
-    return true;
+    return i > 0;
 }
 
 boolean validate_input(char* str){

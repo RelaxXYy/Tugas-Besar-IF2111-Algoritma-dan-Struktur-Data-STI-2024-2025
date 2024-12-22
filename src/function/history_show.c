@@ -20,10 +20,10 @@ void history_show(char *input)
 		for (int i = 0; i < n; i++){
 			HistoryElement temp_history_element;
 			pop_history(&temp_history, &temp_history_element);
-			printf("\nPembelian %d - Total: \n", i + 1, temp_history_element.TotalPrice);
+			printf("\nPembelian %d - Total: %d\n", i + 1, temp_history_element.TotalPrice);
 			printf("Kuantitas	Barang    Total\n");
 			for (int j = 0; j < temp_history_element.HistoryBarangCount; j++){
-				printf("%d			%s		%d\n", temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].buffer.name, temp_history_element.HistoryBarangs[j].buffer.price * temp_history_element.HistoryBarangs[j].amount);
+				printf("%d			%d		%s\n", temp_history_element.HistoryBarangs[j].buffer.price * temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].buffer.name);
 			}
 		}
 	}

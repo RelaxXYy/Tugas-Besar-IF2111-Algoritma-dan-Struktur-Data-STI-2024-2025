@@ -27,10 +27,10 @@ void save(char *filename) {
 
         fprintf(file, "%d\n", users.buffer[i].riwayat_pembelian.IndexTop + 1);
         if ((users.buffer[i].riwayat_pembelian.IndexTop + 1) != 0) {
-            for (int i = 0; i < users.buffer[i].riwayat_pembelian.IndexTop; i++) {
-                fprintf(file, "%d %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs->amount);
-                for (int j = 0; j < users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangCount; j++) {
-                    fprintf(file, "- %s %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs[j].buffer.name, users.buffer[i].riwayat_pembelian.HistoryElements[i].HistoryBarangs[j].amount);
+            for (int j = 0; j < users.buffer[i].riwayat_pembelian.IndexTop + 1; j++) {
+                fprintf(file, "%d %d\n", users.buffer[i].riwayat_pembelian.HistoryElements[j].HistoryBarangCount, users.buffer[i].riwayat_pembelian.HistoryElements[j].TotalPrice);
+                for (int k = 0; k < users.buffer[i].riwayat_pembelian.HistoryElements[j].HistoryBarangCount; k++) {
+                    fprintf(file, "%d %d %s\n", users.buffer[i].riwayat_pembelian.HistoryElements[j].HistoryBarangs[k].buffer.price * users.buffer[i].riwayat_pembelian.HistoryElements[j].HistoryBarangs[k].amount, users.buffer[i].riwayat_pembelian.HistoryElements[j].HistoryBarangs[k].amount, users.buffer[i].riwayat_pembelian.HistoryElements[j].HistoryBarangs[k].buffer.name);
                 }
             }           
         }
@@ -39,7 +39,7 @@ void save(char *filename) {
         if (count_wishlist(&users.buffer[i].wishlist) != 0) {
             Address P = users.buffer[i].wishlist.First;
             while (P != NULL) {
-                fprintf(file, "%d\n", P->Nama);
+                fprintf(file, "%s\n", P->Nama);
                 P = P->Next;
             } 
         }
