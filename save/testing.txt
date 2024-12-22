@@ -1,0 +1,18 @@
+4
+10 AK47
+20 Lalabu
+20 Ayam Goreng Crisbar
+500 Meong
+2
+10100 user1 alstrukdatkeren
+6
+4344888 2
+- AK47 2
+- Lalabu 1
+2
+143791424
+143789472
+5 user2 kerenbangetkak
+0
+1
+143789744

@@ -13,7 +13,7 @@ void help() {
         printf("|| ---------------------------------------------------------- ||\n");
         printf("|| 1. START                                                   ||\n");
         printf("||    Memulai sesi baru                                       ||\n");
-        printf("|| 2. LOAD                                                    ||\n");
+        printf("|| 2. LOAD <filename>                                         ||\n");
         printf("||    Memulai sesi berdasarkan file konfigurasi               ||\n");
         printf("|| 3. QUIT                                                    ||\n");
         printf("||    Keluar dari program                                     ||\n");
@@ -55,7 +55,7 @@ void help() {
         printf("||    Menambah barang berupa senjata biologis                 ||\n");
         printf("|| 9. CART ADD <nama barang> <jumlah barang>                  ||\n");
         printf("||    Untuk menambahkan barang ke dalam keranjang             ||\n");
-        printf("|| 10. CART REMOVE <nama barang> <jumlah barang>               ||\n");
+        printf("|| 10. CART REMOVE <nama barang> <jumlah barang>              ||\n");
         printf("||    Untuk mengurangi/menghapus barang dari keranjang        ||\n");
         printf("|| 11. CART SHOW                                              ||\n");
         printf("||    Untuk menampilkan barang yang ada di keranjang          ||\n");
@@ -79,7 +79,7 @@ void help() {
         printf("||    Untuk melihat semua barang pada wishlist                ||\n");
         printf("|| 20. LOGOUT                                                 ||\n");
         printf("||    Keluar dari sesi                                        ||\n");
-        printf("|| 21. SAVE                                                   ||\n");
+        printf("|| 21. SAVE <filename>                                        ||\n");
         printf("||    Menyimpan state ke dalam file                           ||\n");
         printf("|| 22. QUIT                                                   ||\n");
         printf("||    Keluar dari program                                     ||\n");
