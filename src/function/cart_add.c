@@ -20,7 +20,6 @@ void cart_add(char *nama_barang, int kuantitas) {
         printf("Barang tidak ada di toko!\n");
         return;
     }
-
     if (is_exist_in_cart(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name)) {
         int temp_value;
         temp_value = cart_value(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name);

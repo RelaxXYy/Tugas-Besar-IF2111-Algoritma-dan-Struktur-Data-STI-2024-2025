@@ -57,16 +57,16 @@ void execute_command() {
             else printf("Unknown command: %s\n", input);
         }
         else if (is_same_string(first_word, "ADD") == true && is_user_logged_in == true && is_session_started == true){
-            char last_word[MAX_LEN];
+            char last_word[50];
             get_last_word(no_first_word, last_word);
             if (is_digit(last_word)){
-                char no_first_word_no_second_word_no_last_word[MAX_LEN]; int quantity;
+                char no_first_word_no_second_word_no_last_word[50]; int quantity;
                 ignore_first_word(no_first_word, no_first_and_second_word);
                 ignore_last_word(no_first_and_second_word, no_first_word_no_second_word_no_last_word);
                 string_to_int(last_word, &quantity);
                 cart_add(no_first_word_no_second_word_no_last_word, quantity);
             }
-            else printf("Unknown command: %s\n", input);
+            else ("unknown command: %s\n", input);
         }
         else printf("Unknown command: %s\n", input);
     } else if (is_same_string(first_word, "WISHLIST") == true && is_user_logged_in == true && is_session_started == true) {

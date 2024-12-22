@@ -330,20 +330,18 @@ void get_last_word(char* str, char* last_word){
     last_word[j] = '\0';
 }
 
-void ignore_last_word(char* str, char* new_str){
+void ignore_last_word(char* str, char* new_str) {
     int i = 0;
-    while(str[i] != '\0'){
+    while (str[i] != '\0') {
         i++;
     }
     i--;
-    while(i >= 0 && str[i] != ' '){
+    while (i >= 0 && str[i] != ' ') {
         i--;
     }
-    i++;
     int j = 0;
-    while(i >= 0){
-        new_str[j] = str[i];
-        i++;
+    for (int k = 0; k < i; k++) {
+        new_str[j] = str[k];
         j++;
     }
     new_str[j] = '\0';
