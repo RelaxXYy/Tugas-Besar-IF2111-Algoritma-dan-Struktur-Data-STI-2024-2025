@@ -32,4 +32,5 @@ void cart_add(char *nama_barang, int kuantitas) {
         insert_cart(&current_user.cart, barangs.buffer[barang_index(&barangs, nama_barang)].name, kuantitas);
         printf("Berhasil menambahkan %d %s ke keranjang belanja!\n", kuantitas, nama_barang);
     }
+    return;
 }
