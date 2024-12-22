@@ -37,6 +37,14 @@ Address search_wishlist(Wishlist *wishlist, int position) {
     return P;
 }
 
+Address search_wishlist_name(Wishlist *wishlist, char *name) {
+    Address P = wishlist->First;
+    while (P != NULL && !is_same_string(P->Nama, name)) {
+        P = P->Next;
+    }
+    return P;
+}
+
 void insert_wishlist(Wishlist *wishlist, char *name) {
     Address newNode = alokasi(name);
     if (newNode != NULL) {
@@ -70,8 +78,8 @@ void delete_wishlist(Wishlist *wishlist, char *name) {
 }
 
 void swap_wishlist(Wishlist *wishlist, char *name1, char *name2) {
-    Address P1 = search_wishlist(wishlist, name1);
-    Address P2 = search_wishlist(wishlist, name2);
+    Address P1 = search_wishlist_name(wishlist, name1);
+    Address P2 = search_wishlist_name(wishlist, name2);
     if (P1 != NULL && P2 != NULL) {
         char temp[MAX_LEN];
         copy_string(P1->Nama, temp);

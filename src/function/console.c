@@ -52,7 +52,7 @@ void execute_command() {
                 ignore_first_word(no_first_word, no_first_and_second_word);
                 ignore_last_word(no_first_and_second_word, no_first_word_no_second_word_no_last_word);
                 string_to_int(last_word, &quantity);
-                cart_remove(no_first_word_no_second_word_no_last_word, last_word);
+                cart_remove(no_first_word_no_second_word_no_last_word, quantity);
             }
             else printf("Unknown command: %s\n", input);
         }
@@ -64,7 +64,7 @@ void execute_command() {
                 ignore_first_word(no_first_word, no_first_and_second_word);
                 ignore_last_word(no_first_and_second_word, no_first_word_no_second_word_no_last_word);
                 string_to_int(last_word, &quantity);
-                cart_remove(no_first_word_no_second_word_no_last_word, last_word);
+                cart_add(no_first_word_no_second_word_no_last_word, quantity);
             }
             else printf("Unknown command: %s\n", input);
         }
