@@ -26,6 +26,6 @@ void challenge();
 int random_number_generator(int min, int max);
 void bioweapon_main();
 void rna_translation(const char *dna, char *rna);
-void protein_translation(const char *rna, char *protein);
+void protein_translation(const char *rna, char proteins[3][300], int *protein_lengths);
 
 #endif
