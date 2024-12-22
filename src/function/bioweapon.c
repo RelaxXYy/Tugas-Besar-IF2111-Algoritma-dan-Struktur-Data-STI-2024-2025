@@ -65,8 +65,35 @@ void protein_translation(const char *rna, char proteins[3][300], int *protein_le
             } else if (is_same_string(codon, "CCU") || is_same_string(codon, "CCC") ||
                        is_same_string(codon, "CCA") || is_same_string(codon, "CCG")) {
                 proteins[offset][protein_index++] = 'P';
+            } else if (is_same_string(codon, "ACU") || is_same_string(codon, "ACC") ||
+                       is_same_string(codon, "ACA") || is_same_string(codon, "ACG")) {
+                proteins[offset][protein_index++] = 'T';
+            } else if (is_same_string(codon, "GCU") || is_same_string(codon, "GCC") ||
+                       is_same_string(codon, "GCA") || is_same_string(codon, "GCG")) {
+                proteins[offset][protein_index++] = 'A';
+            } else if (is_same_string(codon, "UAU") || is_same_string(codon, "UAC")) {
+                proteins[offset][protein_index++] = 'Y';
+            } else if (is_same_string(codon, "CAU") || is_same_string(codon, "CAC")) {
+                proteins[offset][protein_index++] = 'H';
+            } else if (is_same_string(codon, "CAA") || is_same_string(codon, "CAG")) {
+                proteins[offset][protein_index++] = 'Q';
+            } else if (is_same_string(codon, "AAU") || is_same_string(codon, "AAC")) {
+                proteins[offset][protein_index++] = 'N';
+            } else if (is_same_string(codon, "AAA") || is_same_string(codon, "AAG")) {
+                proteins[offset][protein_index++] = 'K';
+            } else if (is_same_string(codon, "GAU") || is_same_string(codon, "GAC")) {
+                proteins[offset][protein_index++] = 'D';
+            } else if (is_same_string(codon, "GAA") || is_same_string(codon, "GAG")) {
+                proteins[offset][protein_index++] = 'E';
+            } else if (is_same_string(codon, "UGU") || is_same_string(codon, "UGC")) {
+                proteins[offset][protein_index++] = 'C';
+            } else if (is_same_string(codon, "UGG")) {
+                proteins[offset][protein_index++] = 'W';
+            } else if (is_same_string(codon, "GGU") || is_same_string(codon, "GGC") ||
+                       is_same_string(codon, "GGA") || is_same_string(codon, "GGG")) {
+                proteins[offset][protein_index++] = 'G';
             } else {
-                proteins[offset][protein_index++] = 'X'; // Codon yang tidak diketahui asam aminonya, diasumsikan sebagai 'X'
+                proteins[offset][protein_index++] = 'X'; // Jika codon tidak ditemukan, diasumsikan sebagai 'X'
             }
         }
         proteins[offset][protein_index] = '\0';
@@ -95,6 +122,10 @@ void bioweapon_main() {
 
     rna_translation(weapon.DNA, rnaSequence);
     protein_translation(rnaSequence, proteins, protein_lengths);
+
+    for (int offset = 0; offset < 3; offset++) {
+        printf("Protein (frame %d): %s\n", offset, proteins[offset]);
+    }
 
     int found = 0;
     for (int offset = 0; offset < 3; offset++) {
