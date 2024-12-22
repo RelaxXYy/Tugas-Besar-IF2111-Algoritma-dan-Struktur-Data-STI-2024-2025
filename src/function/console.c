@@ -2,6 +2,7 @@
 
 
 void execute_command() {
+    printf("\n");
     printf("Ketik command atau \"Help\"\n");
     printf(">>> ");
     get_line();
