@@ -24,15 +24,17 @@ void dealokasi (Address *P) {
     *P = NULL;
 }
 
-Address search_wishlist(Wishlist *wishlist, char *name) {
-    Address P = wishlist->First;
-    while (P != NULL) {
-        if (is_same_string(P->Nama, name)) {
-            return P;
-        }
-        P = P->Next;
+Address search_wishlist(Wishlist *wishlist, int position) {
+    if (position < 1) {
+        return NULL;
     }
-    return NULL;
+    Address P = wishlist->First;
+    int i = 1;
+    while (P != NULL && i != position) {
+        P = P->Next;
+        i++;
+    }
+    return P;
 }
 
 void insert_wishlist(Wishlist *wishlist, char *name) {
