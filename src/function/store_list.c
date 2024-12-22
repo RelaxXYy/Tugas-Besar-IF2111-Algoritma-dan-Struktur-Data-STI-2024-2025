@@ -13,7 +13,7 @@ void store_list_main()
     else{
         printf("Daftar barang di toko:\n");
         for (int index = 0; index < barangs.size; index++) {
-        printf("- %s\n", barangs.buffer[index].name);
+        printf("- \"%s\" - harga: %d\n", barangs.buffer[index].name, barangs.buffer[index].price);
         }
     }
     return;

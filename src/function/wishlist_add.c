@@ -11,7 +11,7 @@ void wishlist_add(char *nama_barang) {
         return;
     }
 
-    if (search_wishlist(&current_user.wishlist, nama_barang) != NULL) {
+    if (search_wishlist_name(&current_user.wishlist,nama_barang ) != NULL) {
         printf("%s sudah ada di wishlist!\n", nama_barang);
         return;
     }

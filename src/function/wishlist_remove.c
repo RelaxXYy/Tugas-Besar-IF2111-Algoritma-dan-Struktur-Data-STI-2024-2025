@@ -16,7 +16,7 @@ void wishlist_remove(char *input) {
         printf("\nMasukkan nama barang yang akan dihapus :");
         get_line();
         copy_string(word_to_string(current_word), response);
-        if(search_wishlist(&current_user.wishlist, response) != NULL) {
+        if(search_wishlist_name(&current_user.wishlist, response) != NULL) {
             printf("%s berhasil dihapus dari wishlist!\n", response);
             delete_wishlist(&current_user.wishlist, response);
         }else {

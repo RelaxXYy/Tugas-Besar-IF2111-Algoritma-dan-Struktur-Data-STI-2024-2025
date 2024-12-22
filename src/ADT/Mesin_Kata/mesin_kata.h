@@ -44,5 +44,7 @@ int string_length(char *str);
 void clear_input_buffer();
 int get_positive_integer();
 void clear_string(char* str);
+void get_last_word(char *str, char *last_word);
+void ignore_last_word(char *str, char *new_str);
 
 #endif
