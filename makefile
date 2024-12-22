@@ -25,16 +25,16 @@ ADT_MESIN_WISHLIST = $(SRC_DIR)/ADT/Wishlist
 
 # Source files
 SRC_FILES = $(wildcard $(FUNCTION_DIR)/*.c) \
-            $(wildcard $(ADT_BARANG)/*.c) \
-            $(wildcard $(ADT_CART)/*.c) \
-            $(wildcard $(ADT_HISTORY)/*.c) \
-            $(wildcard $(ADT_MESIN_KARAKTER)/*.c) \
-            $(wildcard $(ADT_MESIN_KATA)/*.c) \
-            $(wildcard $(ADT_MESIN_USER)/*.c) \
-            $(wildcard $(ADT_MESIN_WISHLIST)/*.c)
+            $(ADT_BARANG)/barang.c \
+            $(ADT_CART)/cart.c \
+            $(ADT_HISTORY)/history.c \
+            $(ADT_MESIN_KARAKTER)/mesin_karakter.c \
+            $(ADT_MESIN_KATA)/mesin_kata.c \
+            $(ADT_USER)/user.c \
+            $(ADT_WISHLIST)/wishlist.c
 
 # Output executable
-OUTPUT = purrmart
+OUTPUT = "best_purrmart_in_STI"
 
 # Default target
 all: $(OUTPUT)

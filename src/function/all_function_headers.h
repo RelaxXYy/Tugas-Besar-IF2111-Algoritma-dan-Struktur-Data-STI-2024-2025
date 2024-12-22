@@ -1,6 +1,7 @@
 #ifndef ALL_FUNCTION_HEADERS_H
 #define ALL_FUNCTION_HEADERS_H
 
+#include "load.h"
 #include "bioweapon.h"
 #include "save.h"
 #include "cart_add.h"
@@ -9,7 +10,6 @@
 #include "cart_show.h"
 #include "help.h"
 #include "history_show.h"
-#include "load.h"
 #include "login.h"
 #include "logout.h"
 #include "profile.h"

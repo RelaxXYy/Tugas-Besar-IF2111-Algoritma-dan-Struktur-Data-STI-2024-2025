@@ -1,9 +1,0 @@
-5
-10 Pulpen
-500 Buku Tulis
-100 Tas Sekolah
-25 Penggaris
-15 Pensil
-2
-1000 admin secretpass
-50 guest guestpass

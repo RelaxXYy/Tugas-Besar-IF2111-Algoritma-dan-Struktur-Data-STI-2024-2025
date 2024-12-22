@@ -1,8 +1,6 @@
-#include "../all_library_headers.h"
-#include "../ADT/all_ADT_headers.h"
-#include "../boolean.h"
-#include "../config.h"
 #include "load.h"
+#include "../ADT/History/history.h"
+#include "../ADT/Wishlist/wishlist.h"
 
 void load(char* filename) {
     char file_path[MAX_LEN], default_path[MAX_LEN] = "save/";
@@ -40,6 +38,7 @@ void load(char* filename) {
         }
         name[j] = '\0';
         add_barang(&barangs, name, price);
+        clear_string(name);
     }
     adv();
     int total_users = 0;
@@ -73,12 +72,15 @@ void load(char* filename) {
         add_user(&users, username, password, money);
         clear_string(username); clear_string(password);
         adv();
-        int total_history = 0;
+        int total_history = 0; History temp_history;
+        create_history(&temp_history);
         while (get_current_char() != '\n' && !is_eop()) {
             total_history = total_history * 10 + (get_current_char() - '0');
             adv();
         }
-        for (int j = 0; j < total_history; i++){
+        adv();
+        for (int j = 0; j < total_history; j++){
+            HistoryElement temp_history_element;
             int history_count = 0, history_total_cost = 0;
             while (get_current_char() != ' ' && !is_eop()) {
                 history_count = history_count * 10 + (get_current_char() - '0');
@@ -91,9 +93,8 @@ void load(char* filename) {
             }
             adv();
             for (int k = 0; k < history_count; k++){
-                int history_cost = 0, history_quantity = 0; char history_name[MAX_LEN]; History temp_history; HistoryElement temp_history_element;
+                int history_cost = 0, history_quantity = 0; char history_name[MAX_LEN];
                 int l = 0;
-                create_history(&temp_history);
                 while (get_current_char() != ' ' && !is_eop()) {
                     history_cost = history_cost * 10 + (get_current_char() - '0');
                     adv();
@@ -111,16 +112,17 @@ void load(char* filename) {
                 history_name[l] = '\0';
                 adv();
                 add_history_element(&temp_history_element, barangs.buffer[barang_index(&barangs, history_name)], history_quantity);
-                push_history(&temp_history, temp_history_element);
                 clear_string(history_name);
             }
+            push_history(&temp_history, temp_history_element);
         }
-        adv();
+        users.buffer[i].riwayat_pembelian = temp_history;
         int total_wishlist = 0;
         while (get_current_char() != '\n' && !is_eop()) {
             total_wishlist = total_wishlist * 10 + (get_current_char() - '0');
             adv();
         }
+        adv();
         Wishlist temp_wishlist;
         create_wishlist(&temp_wishlist);
         for (int j = 0; j < total_wishlist; j++){
@@ -140,7 +142,7 @@ void load(char* filename) {
     is_session_started = true;
     is_user_logged_in = false;
     
-    printf("%s\n", "Konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.");
+    printf("Konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.\n");
     printf("****************************************\n");
     printf("*    Silahkan Bergabung di PURRMART    *\n");
     printf("****************************************\n");

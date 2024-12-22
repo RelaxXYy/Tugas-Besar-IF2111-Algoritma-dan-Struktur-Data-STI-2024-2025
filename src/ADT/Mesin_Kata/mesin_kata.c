@@ -222,6 +222,17 @@ boolean is_letter(char* str){
     return true;
 }
 
+boolean is_digit(char* str){
+    int i = 0;
+    while(str[i] != '\0'){
+        if(str[i] < '0' || str[i] > '9'){
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
 boolean validate_input(char* str){
     int i = 0;
     if (str[0] == '\0') {

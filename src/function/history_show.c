@@ -4,9 +4,13 @@
 #include "../config.h"
 #include "history_show.h"
 
-void history_show(int n)
+void history_show(char *n)
 {
-	if(current_user.riwayat_pembelian.IndexTop == -1) printf("Kamu belum membeli barang apapun!\n");
+	if(!is_digit(n)){
+		printf("Input harus berupa angka!\n");
+		return;
+	}
+	else if(current_user.riwayat_pembelian.IndexTop == -1) printf("Kamu belum membeli barang apapun!\n");
 	else{
 		if (n > current_user.riwayat_pembelian.IndexTop + 1) n = current_user.riwayat_pembelian.IndexTop + 1;
 		History temp_history = current_user.riwayat_pembelian;

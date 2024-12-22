@@ -36,6 +36,7 @@ void make_upper_string(char *from, char *to);
 boolean is_blank_exist(char *str);
 boolean is_letter_or_digit(char *str);
 boolean is_letter(char *str);
+boolean is_digit(char *str);
 boolean validate_input(char *str);
 void int_to_string(int number, char *str);
 int string_length(char *str);

@@ -39,6 +39,13 @@ void execute_command() {
         else if (is_same_string(no_first_word, "REMOVE") == true && is_user_logged_in == true && is_session_started == true) store_remove_main();
         else if (is_same_string(no_first_word, "LIST") == true && is_user_logged_in == true && is_session_started == true) store_list_main();
         else printf("Unknown command: %s\n", input);
+    } else if (is_same_string(first_word, "CART") == true && is_user_logged_in == true && is_session_started == true) {
+        ignore_first_word(command, no_first_word);
+        if (is_same_string(no_first_word, "SHOW") == true && is_user_logged_in == true && is_session_started == true) cart_show();
+        else if (is_same_string(no_first_word, "PAY") == true && is_user_logged_in == true && is_session_started == true) cart_pay_main();
+        else if (is_same_string(no_first_word, "REMOVE") == true && is_user_logged_in == true && is_session_started == true) store_remove_main();
+        else if (is_same_string(no_first_word, "ADD") == true && is_user_logged_in == true && is_session_started == true) store_list_main();
+        else printf("Unknown command: %s\n", input);
     } else if (is_same_string(first_word, "SAVE") == true && is_user_logged_in == true && is_session_started == true) {
         ignore_first_word(input, no_first_word);
         save(no_first_word);
