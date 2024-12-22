@@ -5,6 +5,6 @@
 #include "../boolean.h"
 #include "../config.h"
 
-void history_show(int n);
+void history_show(char *input);
 
 #endif

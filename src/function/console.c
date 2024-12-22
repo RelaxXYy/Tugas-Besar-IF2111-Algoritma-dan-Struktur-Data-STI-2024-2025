@@ -67,6 +67,9 @@ void execute_command() {
             else printf("Unknown command: %s\n", input);
         }
         else printf("Unknown command: %s\n", input);
+    } else if (is_same_string(command, "HISTORY" ) == true && is_user_logged_in == true && is_session_started == true) {
+        ignore_first_word(input, no_first_word);
+        history_show(no_first_word);
     } else if (is_same_string(first_word, "SAVE") == true && is_user_logged_in == true && is_session_started == true) {
         ignore_first_word(input, no_first_word);
         save(no_first_word);

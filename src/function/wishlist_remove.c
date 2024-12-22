@@ -4,7 +4,7 @@
 #include "../config.h"
 #include "wishlist_remove.h"
 
-void remove_wishlist(char *input) {
+void wishlist_remove(char *input) {
 
     if (is_wishlist_empty(&current_user.wishlist)) {
         printf("Penghapusan barang WISHLIST gagal dilakukan, WISHLIST kosong!\n");
@@ -26,11 +26,11 @@ void remove_wishlist(char *input) {
     }
 
     int index = 0, position = 0;
-    while(input[index] < '0' || input[index] > '9') {
+    while(input[index] >= '0' && input[index] <= '9') {
         position = position * 10 + (input[index] - '0');
         index++;
     }
-    if (input[--index] != '\0') {
+    if (input[index] != '\0') {
         printf("Penghapusan barang WISHLIST gagal dilakukan, input tidak valid!\n");
         return;
     } else if (position > 0 && position <= count_wishlist(&current_user.wishlist)) {

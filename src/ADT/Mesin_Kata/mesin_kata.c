@@ -270,6 +270,15 @@ void int_to_string(int number, char *str) {
     str[i] = '\0';
 }
 
+void string_to_int(char *str, int *number) {
+    *number = 0;
+    int i = 0;
+    while(str[i] != '\0') {
+        *number = *number * 10 + (str[i] - '0');
+        i++;
+    }
+}
+
 int string_length(char *str) {
     int i = 0;
     while (str[i] != '\0') {

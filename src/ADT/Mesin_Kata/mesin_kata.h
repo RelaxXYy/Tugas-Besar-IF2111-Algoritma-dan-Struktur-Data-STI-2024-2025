@@ -39,6 +39,7 @@ boolean is_letter(char *str);
 boolean is_digit(char *str);
 boolean validate_input(char *str);
 void int_to_string(int number, char *str);
+void string_to_int(char *str, int *number);
 int string_length(char *str);
 void clear_input_buffer();
 int get_positive_integer();

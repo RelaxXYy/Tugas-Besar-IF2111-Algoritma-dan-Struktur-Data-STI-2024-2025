@@ -21,7 +21,7 @@ ADT_HISTORY = $(SRC_DIR)/ADT/History
 ADT_MESIN_KARAKTER = $(SRC_DIR)/ADT/Mesin_Karakter
 ADT_MESIN_KATA = $(SRC_DIR)/ADT/Mesin_Kata
 ADT_USER = $(SRC_DIR)/ADT/User
-ADT_MESIN_WISHLIST = $(SRC_DIR)/ADT/Wishlist
+ADT_WISHLIST = $(SRC_DIR)/ADT/Wishlist
 
 # Source files
 SRC_FILES = $(wildcard $(FUNCTION_DIR)/*.c) \
