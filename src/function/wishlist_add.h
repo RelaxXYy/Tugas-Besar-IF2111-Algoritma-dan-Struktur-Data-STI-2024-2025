@@ -5,6 +5,7 @@
 #include "../boolean.h"
 #include "../config.h"
 
-void wishlist_add(char *nama_barang, int quantity);
+void wishlist_add(char *nama_barang);
+void wishlist_add_main();
 
 #endif
