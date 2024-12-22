@@ -8,7 +8,7 @@
 #define MAX_LIST 100 // Maximum length of a static list
 #define MAX_QUEUE 100 // Maximum length of a queue (static)
 #define MAX_CHALLENGE 100 // Maximum length of a list of Challenge
-#define MAX_STACK 100 // Maximum length of a stack (static)
+#define MAX_STACK 70 // Maximum length of a stack (static)
 
 extern boolean is_session_started;
 

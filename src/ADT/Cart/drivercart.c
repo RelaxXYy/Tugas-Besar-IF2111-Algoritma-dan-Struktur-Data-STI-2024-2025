@@ -1,9 +1,7 @@
-#include "../all_library_headers.h"
-#include "../ADT/all_ADT_headers.h"
-#include "../boolean.h"
-#include "../config.h"
+#include <stdio.h>
+#include "cart.h"
 
-int driver_cart() {
+int main() {
     Cart cart;
 
     create_cart(&cart);

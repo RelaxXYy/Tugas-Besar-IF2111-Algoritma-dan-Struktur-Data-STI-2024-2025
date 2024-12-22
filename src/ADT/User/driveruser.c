@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "user.h"
 
-int driver_user() {
+int main() {
     ListUser users;
     create_list_user(&users);
 
