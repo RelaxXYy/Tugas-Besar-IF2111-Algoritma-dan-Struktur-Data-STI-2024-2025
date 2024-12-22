@@ -5,7 +5,6 @@ void execute_command() {
     printf("Ketik command atau \"Help\"\n");
     printf(">>> ");
     get_line();
-    printf("\n");
     char command[MAX_LEN], first_word[MAX_LEN], no_first_word[MAX_LEN], input[MAX_LEN];
     copy_string(word_to_string(current_word), command);
     copy_string(command, input);
