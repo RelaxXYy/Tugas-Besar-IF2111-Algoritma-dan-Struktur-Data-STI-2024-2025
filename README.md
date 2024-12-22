@@ -77,37 +77,34 @@ Berikut adalah daftar command yang dapat digunakan di PURRMART:
 17. **WISHLIST SWAP `<i>` `<j>`**  
     Menukar posisi dua barang dalam wishlist berdasarkan urutan `<i>` dan `<j>`.
 
-18. **WISHLIST REMOVE `<i>`**  
-    Menghapus barang dari wishlist berdasarkan posisinya.
+18. **WISHLIST REMOVE**  
+    Menghapus barang dari wishlist berdasarkan nama atau posisi barang.
 
-19. **WISHLIST REMOVE `<nama>`**  
-    Menghapus barang dari wishlist berdasarkan nama barangnya.
-
-20. **WISHLIST CLEAR**  
+19. **WISHLIST CLEAR**  
     Menghapus semua barang dari wishlist pengguna.
 
-21. **WISHLIST SHOW**  
+20. **WISHLIST SHOW**  
     Menampilkan semua barang yang ada di wishlist pengguna.
 
-22. **LOGOUT**  
+21. **LOGOUT**  
     Keluar dari sesi pengguna saat ini.
 
-23. **SAVE `<filename>`**  
+22. **SAVE `<filename>`**  
     Menyimpan state aplikasi ke dalam file tertentu.
 
-24. **HELP**  
+23. **HELP**  
     Menampilkan daftar command yang tersedia beserta deskripsinya.
 
-25. **QUIT**  
+24. **QUIT**  
     Keluar dari aplikasi.
 
-26. **SAVE `<filename>`**  
+25. **SAVE `<filename>`**  
     Menyimpan state aplikasi ke dalam file tertentu.
 
-27. **HELP**  
+26. **HELP**  
     Menampilkan daftar command yang tersedia beserta deskripsinya.
 
-28. **QUIT**  
+27. **QUIT**  
     Keluar dari aplikasi.
 
 ---
