@@ -23,9 +23,8 @@ void history_show(char *input)
 			printf("\nPembelian %d - Total: %d\n", i + 1, temp_history_element.TotalPrice);
 			printf("Kuantitas	Barang    Total\n");
 			for (int j = 0; j < temp_history_element.HistoryBarangCount; j++){
-				printf("%d			%d		%s\n", temp_history_element.HistoryBarangs[j].buffer.price * temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].buffer.name);
+				printf("%d		%d		%s\n", temp_history_element.HistoryBarangs[j].buffer.price * temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].amount, temp_history_element.HistoryBarangs[j].buffer.name);
 			}
 		}
 	}
-	return;
 }

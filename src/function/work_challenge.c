@@ -31,7 +31,6 @@ void tebak_angka(){
 
         if (guess == number){
             printf("Selamat, kamu berhasil menebak angka! Anda mendapatkan uang sebanyak %d\n", earning);
-            add_money(&users, current_user.name, earning);
             current_user.money += earning;
             return;
         } else if (guess < number){
@@ -83,7 +82,6 @@ void wordl399(){
         valid = true;
         if (is_same_string(guess, word)){
             printf("Selamat, kamu berhasil menebak kata! Anda mendapatkan uang sebanyak 1500\n");
-            add_money(&users, current_user.name, 1500);
             current_user.money += 1500;
             return;
         }
@@ -201,10 +199,10 @@ void challenge(){
     for(int i = 0; i < challenges.count; i++){
         int_to_string(challenges.buffer[i].token, str);
         if(is_same_string(response, str)){
-            printf("Uang anda sekarang: %d\n", current_user.money);
             if(current_user.money >= challenges.buffer[i].cost){ 
-                reduce_money(&users, current_user.name, challenges.buffer[i].cost);
+                current_user.money -= challenges.buffer[i].cost;
                 challenges.buffer[i].function();
+                printf("Uang anda sekarang: %d\n", current_user.money);
             }
             else printf("Uang tidak cukup. Silakan coba lagi\n");
             return;

@@ -22,7 +22,6 @@ typedef struct {
 } History;
 
 void create_history(History *history);
-void add_history_element(HistoryElement *historyElement, Barang barang, int amount);
 void push_history(History *history, HistoryElement historyElement);
 void pop_history(History *history, HistoryElement *historyElement);
 

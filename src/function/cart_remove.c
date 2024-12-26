@@ -6,6 +6,8 @@
 
 void cart_remove(char *nama_barang, int kuantitas) {
 
+    printf("nama_barang: %s\n", nama_barang);
+
     if (barang_index(&barangs, nama_barang) == -1) {
         printf("Barang tidak ada di toko!\n");
         return;

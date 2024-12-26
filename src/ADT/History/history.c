@@ -4,13 +4,6 @@ void create_history(History *history) {
     history->IndexTop = -1;
 }
 
-void add_history_element(HistoryElement *historyElement, Barang barang, int amount) {
-    historyElement->HistoryBarangs[historyElement->HistoryBarangCount].buffer = barang;
-    historyElement->HistoryBarangs[historyElement->HistoryBarangCount].amount = amount;
-    historyElement->TotalPrice += barang.price * amount;
-    historyElement->HistoryBarangCount++;
-}
-
 void push_history(History *history, HistoryElement historyElement) {
     if (history->IndexTop < MAX_STACK - 1) {
         history->IndexTop++;

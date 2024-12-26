@@ -23,7 +23,7 @@ void copy_word();
 boolean is_same_word(Word w1, Word w2);
 Word string_to_word(char *str);
 void print_word(Word w);
-void copy_string(char *to, char *from);
+void copy_string(char *from, char *to);
 boolean is_same_string(char *str1, char *str2);
 char* word_to_string(Word w);
 void lower_string(char *str);

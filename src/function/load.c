@@ -46,8 +46,8 @@ void load(char* filename) {
         total_users = total_users * 10 + (get_current_char() - '0');
         adv();
     }
+    adv();
     for (int i = 0; i < total_users; i++) {
-        adv();
         int money = 0;
         char username[MAX_LEN];
         char password[MAX_LEN];
@@ -87,11 +87,13 @@ void load(char* filename) {
                 adv();
             }
             adv();
+            temp_history_element.HistoryBarangCount = history_count;
             while (get_current_char() != '\n' && !is_eop()) {
                 history_total_cost = history_total_cost * 10 + (get_current_char() - '0');
                 adv();
             }
             adv();
+            temp_history_element.TotalPrice = history_total_cost;
             for (int k = 0; k < history_count; k++){
                 int history_cost = 0, history_quantity = 0; char history_name[MAX_LEN];
                 int l = 0;
@@ -111,7 +113,9 @@ void load(char* filename) {
                 }
                 history_name[l] = '\0';
                 adv();
-                add_history_element(&temp_history_element, barangs.buffer[barang_index(&barangs, history_name)], history_quantity);
+                temp_history_element.HistoryBarangs[k].amount = history_quantity;
+                copy_string(history_name, temp_history_element.HistoryBarangs[k].buffer.name);
+                temp_history_element.HistoryBarangs[k].buffer.price = history_cost / history_quantity;
                 clear_string(history_name);
             }
             push_history(&temp_history, temp_history_element);
